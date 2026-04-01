@@ -16,7 +16,7 @@ const About = () => {
         <div className="flex-shrink-0 pr-12">
           <div className="relative w-72 h-96">
             {/* Background box */}
-            <div className="absolute bottom-0 left-4 w-64 h-92 bg-gray-200"></div>
+            <div className="absolute bottom-0 -left-4 w-64 h-92 bg-gray-200"></div>
             {/* Image box */}
             <div className="absolute top-0 left-0 w-64 h-92 bg-gray-300">
               <img src={profileImage} alt="Profile" className="w-full h-full object-cover border-6 border-white" />
