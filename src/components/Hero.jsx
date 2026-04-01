@@ -6,7 +6,7 @@ import linkedinIcon from "../Icon/linkedin.svg";
 
 const Hero = () => {
   return (
-    <div className="flex items-start justify-between min-h-screen bg-white px-48 pt-16 gap-16">
+    <div className="flex items-start justify-between bg-white px-48 py-16 gap-16">
       {/* Left Content */}
         <div className="flex flex-col gap-2 flex-1">
             <h1 className="text-6xl font-bold text-black">
@@ -36,10 +36,10 @@ const Hero = () => {
 
         {/* Social Links */}
         <div className="flex items-center gap-4">
-          <a href="#github">
+          <a href="https://github.com/Saident" target="_blank" rel="noopener noreferrer">
             <img src={githubIcon} alt="github" className="w-6 h-6" />
           </a>
-          <a href="#linkedin">
+          <a href="https://www.linkedin.com/in/averilprimayuda/" target="_blank" rel="noopener noreferrer">
             <img src={linkedinIcon} alt="linkedin" className="w-6 h-6" />
           </a>
         </div>
@@ -52,7 +52,7 @@ const Hero = () => {
           <div className="absolute bottom-0 left-4 w-72 h-80 bg-gray-200"></div>
           {/* Image box */}
           <div className="absolute top-0 left-0 w-72 h-80 bg-gray-300">
-            <img src={profileImage} alt="Averil" className="w-full h-full object-cover" />
+            <img src={profileImage} alt="Averil" className="w-full h-full object-cover border-6 border-white" />
           </div>
         </div>
       </div>
