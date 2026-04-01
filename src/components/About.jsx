@@ -2,10 +2,10 @@ import profileImage from "../assets/1764214549495.jpg.jpeg";
 
 const About = () => {
   return (
-    <div className="bg-white px-48 py-16 pt-8">
+    <div id="about" className="bg-white px-48 py-16 pt-8">
       {/* About Header Badge */}
       <div className="flex justify-center mb-8">
-        <span className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">
+        <span className="bg-gradient-to-r from-gray-100 to-gray-300 border border-gray-200 text-gray-900 px-6 py-2.5 rounded-full text-sm font-semibold shadow-md">
           About me
         </span>
       </div>

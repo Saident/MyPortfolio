@@ -11,6 +11,8 @@ const Projects = () => {
       tags: ["PHP", "Laravel", "Blade", "Javascript", "MySQL", "Tailwindcss", "Figma", "Git"],
       imagePosition: "left",
       imageAlt: "Social Media App Dashboard",
+      // Added link here
+      link: "https://github.com/Saident/integrated-social-media",
     },
     {
       id: 2,
@@ -20,15 +22,17 @@ const Projects = () => {
       tags: ["Golang", "Docker", "Postman", "MySQL", "Git"],
       imagePosition: "right",
       imageAlt: "Women Center Admin Panel",
+      // Added link here
+      link: "https://github.com/Kelompok-4-Capstone-Alterra/go_women_center",
     },
   ];
 
   return (
-    <div className="bg-white px-48 py-16">
+    <div id="projects" className="bg-white px-48 py-16">
       {/* Work Header Badge */}
       <div className="flex justify-center mb-8">
-        <span className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium">
-          Work
+        <span className="bg-gradient-to-r from-gray-100 to-gray-300 border border-gray-200 text-gray-900 px-6 py-2.5 rounded-full text-sm font-semibold shadow-md">
+          Projects
         </span>
       </div>
 
@@ -48,7 +52,6 @@ const Projects = () => {
             {project.imagePosition === "left" && (
               <div className="flex-1">
                 <div className="w-full h-98 rounded-lg overflow-hidden shadow-md bg-gray-50 flex items-center justify-center">
-                  {/* Changed to object-cover here */}
                   <img 
                     src={dashboardImage} 
                     alt={project.imageAlt}
@@ -80,8 +83,13 @@ const Projects = () => {
                 ))}
               </div>
 
-              {/* External Link Icon */}
-              <a href="#" className="inline-block text-gray-700 hover:text-black">
+              {/* External Link Icon - Updated href and added target="_blank" */}
+              <a 
+                href={project.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block text-gray-700 hover:text-black transition-colors"
+              >
                 <svg
                   className="w-6 h-6"
                   fill="none"
@@ -102,7 +110,6 @@ const Projects = () => {
             {project.imagePosition === "right" && (
               <div className="flex-1">
                 <div className="w-full h-98 rounded-lg overflow-hidden shadow-lg bg-gray-50 flex items-center justify-center">
-                  {/* Changed to object-cover here */}
                   <img 
                     src={womenCenterImage} 
                     alt={project.imageAlt}
