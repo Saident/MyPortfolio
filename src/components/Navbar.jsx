@@ -8,8 +8,6 @@ const Navbar = () => {
 
   return (
     <header className="relative flex items-center justify-between px-6 lg:px-20 py-4 bg-white border-b border-gray-200 z-50">
-      
-      {/* Logo Area */}
       <div className="text-3xl font-bold text-gray-900">
       </div>
 

@@ -27,8 +27,7 @@ const Skills = () => {
   ];
 
   return (
-    // 1. RESPONSIVE PADDING: px-8 on mobile, px-48 on desktop
-    <div className="bg-white px-8 lg:px-48 py-16 pt-8 overflow-hidden max-w-screen-2xl mx-auto">
+    <div className="px-8 lg:px-48 py-16 pt-8 overflow-hidden max-w-screen-2xl mx-auto">
       
       <ScrollReveal direction="down" delay={0.1} width="100%">
         <div className="flex justify-center mb-8">
@@ -38,7 +37,6 @@ const Skills = () => {
         </div>
       </ScrollReveal>
 
-      {/* 2. RESPONSIVE TEXT: text-3xl on mobile, text-4xl on desktop */}
       <ScrollReveal direction="down" delay={0.2} width="100%">
         <h2 className="text-3xl lg:text-4xl font-bold text-black pb-8 text-center">
           The skills, tools and technologies I am good at:
@@ -46,7 +44,6 @@ const Skills = () => {
       </ScrollReveal>
 
       <div className="flex justify-center items-center">
-        {/* 3. RESPONSIVE GAP: gap-6 on mobile so more icons fit per row, gap-12 on desktop */}
         <div className="flex flex-wrap justify-center gap-6 lg:gap-12 max-w-4xl">
           {skills.map((skill, index) => (
             <ScrollReveal 
@@ -56,7 +53,6 @@ const Skills = () => {
             >
               <div className="flex flex-col items-center w-20 lg:w-24 hover:-translate-y-2 transition-transform duration-300">
                 <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-lg flex items-center justify-center">
-                  {/* Icon size scales down slightly on mobile */}
                   <img src={skill.icon} alt={skill.name} className="w-10 h-10 lg:w-12 lg:h-12" />
                 </div>
                 <span className="text-gray-700 font-medium text-center text-sm lg:text-base mt-2">

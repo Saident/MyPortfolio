@@ -19,8 +19,7 @@ const Contact = () => {
   };
 
   return (
-    // 1. RESPONSIVE PADDING
-    <div id="contact" className="bg-white px-8 lg:px-48 py-16 overflow-hidden max-w-screen-2xl mx-auto">
+    <div id="contact" className="px-8 lg:px-48 py-16 overflow-hidden max-w-screen-2xl mx-auto">
       
       <ScrollReveal direction="down" delay={0.1} width="100%">
         <div className="flex justify-center mb-8">
@@ -30,10 +29,8 @@ const Contact = () => {
         </div>
       </ScrollReveal>
 
-      {/* Main Message */}
       <ScrollReveal direction="down" delay={0.2} width="100%">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          {/* RESPONSIVE TEXT: text-base on mobile, text-lg on desktop */}
           <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
             Looking ahead, my inbox is always open. Whether you're looking to hire
             a developer, have a project inquiry, or simply want to network, I'd
@@ -43,16 +40,12 @@ const Contact = () => {
       </ScrollReveal>
 
       <div className="max-w-2xl mx-auto text-center space-y-6 lg:space-y-8 mb-12">
-        {/* Email */}
         <ScrollReveal direction="up" delay={0.3} width="100%">
-          {/* Adjusted gap for mobile */}
           <div className="flex items-center justify-center gap-3 lg:gap-4">
-            {/* Slightly smaller icon on mobile */}
             <img src={mailIcon} alt="mail" className="w-5 h-5 lg:w-6 lg:h-6" />
 
             <a
               href="mailto:averilprimayuda@gmail.com"
-              // 2. RESPONSIVE EMAIL TEXT: Scales down to text-lg on mobile so it doesn't overflow
               className="text-lg sm:text-xl lg:text-2xl font-bold text-black hover:text-gray-600 transition-colors hover:-translate-y-1 transition-transform"
             >
               averilprimayuda@gmail.com
@@ -61,7 +54,7 @@ const Contact = () => {
             <div className="relative flex items-center">
               <button
                 onClick={() => handleCopy("averilprimayuda@gmail.com")}
-                className="text-gray-700 hover:text-black active:scale-75 duration-150 hover:-translate-y-1 transition-transform"
+                className="cursor-pointer text-gray-700 hover:text-black active:scale-75 duration-150 hover:-translate-y-1 transition-transform"
                 title="Copy email"
               >
                 <img src={copyIcon} alt="copy" className="w-5 h-5 lg:w-6 lg:h-6" />
@@ -81,14 +74,12 @@ const Contact = () => {
           </div>
         </ScrollReveal>
 
-        {/* Phone */}
         <ScrollReveal direction="up" delay={0.4} width="100%">
           <div className="flex items-center justify-center gap-3 lg:gap-4">
             <img src={telephoneIcon} alt="telephone" className="w-5 h-5 lg:w-6 lg:h-6" />
 
             <a
               href="tel:+62822300800369"
-              // RESPONSIVE PHONE TEXT
               className="text-lg sm:text-xl lg:text-2xl font-bold text-black hover:text-gray-600 transition-colors hover:-translate-y-1 transition-transform"
             >
               +62 8223008369
@@ -97,7 +88,7 @@ const Contact = () => {
             <div className="relative flex items-center">
               <button
                 onClick={() => handleCopy("+62 8223008369")}
-                className="text-gray-700 hover:text-black active:scale-75 duration-150 hover:-translate-y-1 transition-transform"
+                className="cursor-pointer text-gray-700 hover:text-black active:scale-75 duration-150 hover:-translate-y-1 transition-transform"
                 title="Copy phone number"
               >
                 <img src={copyIcon} alt="copy" className="w-5 h-5 lg:w-6 lg:h-6" />

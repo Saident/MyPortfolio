@@ -7,7 +7,7 @@ import ScrollReveal from './ScrollReveal';
 
 const Hero = () => {
   return (
-    <div className="bg-white overflow-hidden">
+    <div className="overflow-hidden">
       <div className="flex flex-col-reverse lg:flex-row items-center lg:items-start justify-between px-6 md:px-16 lg:px-48 py-16 lg:py-24 gap-12 lg:gap-16 max-w-screen-2xl mx-auto">
         
         <div className="flex flex-col gap-4 flex-1 items-center lg:items-start text-center lg:text-left">
@@ -56,7 +56,7 @@ const Hero = () => {
         </div>
 
         <ScrollReveal direction="right" delay={0.2} className="flex items-center justify-center lg:justify-end lg:mr-8 mt-8 lg:mt-0">
-          <div className="relative w-64 h-72 md:w-72 md:h-80 lg:w-80 lg:h-96">
+          <div className="relative w-64 h-72 md:w-72 md:h-76 lg:w-80 lg:h-84">
             <div className="absolute bottom-0 left-4 w-56 h-64 md:w-64 md:h-72 lg:w-72 lg:h-80 bg-gray-200"></div>
             <div className="absolute top-0 left-0 w-56 h-64 md:w-64 md:h-72 lg:w-72 lg:h-80 bg-gray-300">
               <img src={profileImage} alt="Averil" className="w-full h-full object-cover border-4 md:border-6 border-white" />
