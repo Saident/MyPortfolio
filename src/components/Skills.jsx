@@ -9,6 +9,7 @@ import mysqlIcon from "../Icon/mysql.svg";
 import tailwindIcon from "../Icon/tailwind.svg";
 import gitIcon from "../Icon/git.svg";
 import figmaIcon from "../Icon/figma.svg";
+import ScrollReveal from "./ScrollReveal";
 
 const Skills = () => {
   const skills = [
@@ -26,34 +27,38 @@ const Skills = () => {
   ];
 
   return (
-    <div className="bg-white px-48 py-16 pt-8">
-      {/* Skills Header Badge */}
-      <div className="flex justify-center mb-8">
-        <span className="bg-gradient-to-r from-gray-100 to-gray-300 border border-gray-200 text-gray-900 px-6 py-2.5 rounded-full text-sm font-semibold shadow-md">
-          Skills
-        </span>
-      </div>
+    <div className="bg-white px-48 py-16 pt-8 overflow-hidden">
+      <ScrollReveal direction="down" delay={0.1} width="100%">
+        <div className="flex justify-center mb-8">
+          <span className="bg-gradient-to-r from-gray-100 to-gray-300 border border-gray-200 text-gray-900 px-6 py-2.5 rounded-full text-sm font-semibold shadow-md">
+            Skills
+          </span>
+        </div>
+      </ScrollReveal>
 
-      {/* Section Title */}
-      <h2 className="text-4xl font-bold text-black pb-8 text-center">
-        The skills, tools and technologies I am good at:
-      </h2>
+      <ScrollReveal direction="down" delay={0.2} width="100%">
+        <h2 className="text-4xl font-bold text-black pb-8 text-center">
+          The skills, tools and technologies I am good at:
+        </h2>
+      </ScrollReveal>
 
-      {/* Skills Container - Changed to Flex Wrap */}
       <div className="flex justify-center items-center">
-        {/* Changed this line from grid to flex */}
         <div className="flex flex-wrap justify-center gap-12 max-w-4xl">
-          {skills.map((skill) => (
-            <div key={skill.name} className="flex flex-col items-center w-24">
-              {/* Skill Icon */}
-              <div className="w-20 h-20 rounded-lg flex items-center justify-center">
-                <img src={skill.icon} alt={skill.name} className="w-12 h-12" />
+          {skills.map((skill, index) => (
+            <ScrollReveal 
+              key={skill.name} 
+              direction="up" 
+              delay={0.3 + (index * 0.1)} 
+            >
+              <div className="flex flex-col items-center w-24 hover:-translate-y-2 transition-transform duration-300">
+                <div className="w-20 h-20 rounded-lg flex items-center justify-center">
+                  <img src={skill.icon} alt={skill.name} className="w-12 h-12" />
+                </div>
+                <span className="text-gray-700 font-medium text-center">
+                  {skill.name}
+                </span>
               </div>
-              {/* Skill Name */}
-              <span className="text-gray-700 font-medium text-center">
-                {skill.name}
-              </span>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
