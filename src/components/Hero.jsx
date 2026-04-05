@@ -20,7 +20,7 @@ const Hero = () => {
 
           <ScrollReveal direction="left" delay={0.2} width="100%">
             <p className="text-base md:text-lg text-gray-600 leading-relaxed pb-4 lg:pb-8 lg:pr-12">
-              I&apos;m a full stack developer (React.js &amp; GoLang) with a
+              I&apos;m a full stack developer with a
               focus on creating (and occasionally designing) exceptional digital
               experiences that are fast, accessible, visually appealing, and
               responsive. Even though I have been creating web applications for
