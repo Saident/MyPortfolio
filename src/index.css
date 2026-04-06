@@ -51,16 +51,6 @@
   }
 }
 
-@media (pointer: fine) {
-  body, 
-  a, 
-  button, 
-  input, 
-  [role="button"] {
-    cursor: none !important;
-  }
-}
-
 body {
   margin: 0;
 }
