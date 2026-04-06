@@ -5,7 +5,7 @@ import ScrollReveal from "./ScrollReveal";
 const projects = [
   {
     id: 1,
-    year: "2024",
+    year: "2025",
     category: "Thesis · Full-stack",
     title: "Integrated Social Media App",
     description:
