@@ -4,10 +4,12 @@ import About from './components/About'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
+import CustomCursor from './components/CustomCursor'
 
 function App() {
   return (
-    <div className="w-full bg-white min-h-screen relative"> 
+    <div className="w-full bg-white min-h-screen relative">
+      <CustomCursor /> 
       <div className="relative z-10">
         <Navbar />
         <Hero />
