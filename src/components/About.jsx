@@ -1,4 +1,4 @@
-import profileImage from "../assets/1764214549495.jpg.jpeg";
+import profileImage from "../assets/photo1-compressed.jpeg";
 import ScrollReveal from './ScrollReveal';
 
 const quickBits = [
