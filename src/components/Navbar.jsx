@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import resumePdf from "../assets/resume.pdf";
+import resumePdf from "../assets/resume 2.pdf";
 
 const navItems = ["About", "Skills", "Projects", "Contact"];
 

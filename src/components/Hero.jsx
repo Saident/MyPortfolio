@@ -1,4 +1,4 @@
-import profileImage from "../assets/IMG_20260310_113804_796.jpg.jpeg";
+import profileImage from "../assets/ChatGPT Image Apr 6, 2026, 04_17_20 PM.png";
 import githubIcon from "../Icon/github.svg";
 import linkedinIcon from "../Icon/linkedin.svg";
 import ScrollReveal from './ScrollReveal';
