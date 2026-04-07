@@ -1,49 +1,92 @@
-import javaIcon from "../Icon/java.svg";
 import javascriptIcon from "../Icon/javascript.svg";
 import phpIcon from "../Icon/php.svg";
 import golangIcon from "../Icon/golang.svg";
+import javaIcon from "../Icon/java.svg";
 import reactIcon from "../Icon/react.svg";
-import nodeIcon from "../Icon/nodejs.svg";
-import postgresIcon from "../Icon/postgresql.svg";
 import mysqlIcon from "../Icon/mysql.svg";
-import tailwindIcon from "../Icon/tailwind.svg";
+import postgresIcon from "../Icon/postgresql.svg";
 import gitIcon from "../Icon/git.svg";
-import figmaIcon from "../Icon/figma.svg";
 import ScrollReveal from "./ScrollReveal";
+import laravel from "../Icon/laravel.svg";
+import aws from "../Icon/aws.svg";
+import postman from "../Icon/postman.svg";
+
+const BladeIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
+    <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#FF2D20"/>
+    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#FF2D20" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" opacity="0.55"/>
+  </svg>
+);
+
+const AIIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="#4a4a44" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+    <circle cx="12" cy="12" r="3" fill="#4a4a44" stroke="none" opacity="0.15"/>
+    <circle cx="12" cy="12" r="1.5" fill="#4a4a44" stroke="none"/>
+  </svg>
+);
 
 const skillGroups = [
   {
-    category: "Languages",
+    category: "Programming Languages",
     skills: [
-      { name: "JavaScript", icon: javascriptIcon },
-      { name: "GoLang", icon: golangIcon },
-      { name: "PHP", icon: phpIcon },
-      { name: "Java", icon: javaIcon },
+      { name: "PHP",        render: "img",  src: phpIcon },
+      { name: "GoLang",     render: "img",  src: golangIcon },
+      { name: "Java",       render: "img",  src: javaIcon },
+      { name: "JavaScript", render: "img",  src: javascriptIcon },
+      { name: "Blade",      render: "svg",  Icon: BladeIcon },
     ],
   },
   {
-    category: "Frontend",
+    category: "Frameworks & Libraries",
     skills: [
-      { name: "React.js", icon: reactIcon },
-      { name: "Tailwind CSS", icon: tailwindIcon },
+      { name: "Laravel",  render: "ext", src: laravel },
+      { name: "Gin",      render: "ext", src: golangIcon },
+      { name: "React.js", render: "img", src: reactIcon },
     ],
   },
   {
-    category: "Backend & DB",
+    category: "Databases",
     skills: [
-      { name: "Node.js", icon: nodeIcon },
-      { name: "PostgreSQL", icon: postgresIcon },
-      { name: "MySQL", icon: mysqlIcon },
+      { name: "MySQL",      render: "img", src: mysqlIcon },
+      { name: "PostgreSQL", render: "img", src: postgresIcon },
     ],
   },
   {
-    category: "Tooling",
+    category: "Other Tools",
     skills: [
-      { name: "Git", icon: gitIcon },
-      { name: "Figma", icon: figmaIcon },
+      { name: "Git",      render: "img", src: gitIcon },
+      { name: "AWS",      render: "ext", src: aws },
+      { name: "Postman",  render: "ext", src: postman },
+      { name: "AI Tools", render: "svg", Icon: AIIcon },
     ],
   },
 ];
+
+const SkillPill = ({ skill }) => {
+  const icon =
+    skill.render === "svg" ? (
+      <skill.Icon />
+    ) : (
+      <img
+        src={skill.src}
+        alt={skill.name}
+        className="w-7 h-7 object-contain"
+        onError={(e) => (e.currentTarget.style.display = "none")}
+      />
+    );
+
+  return (
+    <div
+      className="flex items-center gap-3 px-5 py-3.5 bg-[#f4f3ef] border border-[#e8e6e0] rounded-2xl
+        hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.10)] hover:border-[#d0cec8] hover:bg-[#eeecea]
+        transition-all duration-200 cursor-default select-none"
+    >
+      {icon}
+      <span className="text-[15px] font-medium text-[#4a4a44]">{skill.name}</span>
+    </div>
+  );
+};
 
 const Skills = () => {
   return (
@@ -66,31 +109,18 @@ const Skills = () => {
         {skillGroups.map((group, gi) => (
           <ScrollReveal key={group.category} direction="up" delay={0.1 + gi * 0.08} width="100%">
             <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-0">
-              {/* Category label */}
-              <div className="sm:w-40 shrink-0 pt-4">
-                <span className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#999]">
+
+              {/* Category label — wider to fit longer names */}
+              <div className="sm:w-56 shrink-0 pt-4">
+                <span className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#999] leading-relaxed">
                   {group.category}
                 </span>
               </div>
 
-              {/* Skill pills */}
+              {/* Pills */}
               <div className="flex flex-wrap gap-3">
                 {group.skills.map((skill) => (
-                  <div
-                    key={skill.name}
-                    className="flex items-center gap-3 px-5 py-3.5 bg-[#f4f3ef] border border-[#e8e6e0] rounded-2xl
-                      hover:-translate-y-1.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.10)] hover:border-[#d0cec8] hover:bg-[#eeecea]
-                      transition-all duration-200 cursor-default"
-                  >
-                    <img
-                      src={skill.icon}
-                      alt={skill.name}
-                      className="w-7 h-7"
-                    />
-                    <span className="text-[15px] font-medium text-[#4a4a44]">
-                      {skill.name}
-                    </span>
-                  </div>
+                  <SkillPill key={skill.name} skill={skill} />
                 ))}
               </div>
             </div>
