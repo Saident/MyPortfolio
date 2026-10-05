@@ -1,23 +1,18 @@
-import { motion } from "framer-motion";
+import { m as Motion, useReducedMotion } from "framer-motion";
 
-const ScrollReveal = ({ children, direction = "up", delay = 0, width = "fit-content", className = "" }) => {
-  const hiddenState = {
-    opacity: 0,
-    x: direction === "left" ? -50 : direction === "right" ? 50 : 0,
-    y: direction === "up" ? 50 : direction === "down" ? -50 : 0,
-  };
-
+const ScrollReveal = ({ children, delay = 0, width = "fit-content", className = "" }) => {
+  const reduceMotion = useReducedMotion();
   return (
-    <motion.div
-      initial={hiddenState}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.7, ease: "easeOut", delay: delay }}
+    <Motion.div
+      initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay }}
       style={{ width }}
       className={className}
     >
       {children}
-    </motion.div>
+    </Motion.div>
   );
 };
 

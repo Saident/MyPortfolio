@@ -1,3 +1,4 @@
+import { LazyMotion, domAnimation } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -7,14 +8,17 @@ import Contact from './components/Contact'
 
 function App() {
   return (
-    <div className="w-full bg-[#fafaf8] min-h-screen">
+    <LazyMotion features={domAnimation} strict>
+      <a className="skip-link" href="#main">Skip to content</a>
       <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-    </div>
+      <main id="main" tabIndex={-1}>
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        <Contact />
+      </main>
+    </LazyMotion>
   )
 }
 

@@ -1,16 +1,31 @@
-# React + Vite
+# Averil Primayuda's Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal portfolio for Averil Primayuda, Software Developer at PT. YEKAPE SURABAYA. Built with React, Vite, Tailwind CSS, GSAP, and Framer Motion.
 
-Currently, two official plugins are available:
+## Local development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```sh
+npm ci
+npm run dev
+```
 
-## React Compiler
+```sh
+npm run lint     # Check JavaScript and React Hooks
+npm run build    # Build the production site in dist/
+npm run preview  # Preview the production build locally
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+There is no automated test suite configured. Check responsive layouts, mobile navigation, project links, résumé downloads, and contact actions in a browser after making changes.
 
-## Expanding the ESLint configuration
+## Updating the portfolio
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Edit `src/data/portfolio.js` for profile details, contact links, and project information.
+- Edit `src/components/About.jsx` for the biography and current role presentation.
+- Edit `src/components/Skills.jsx` for the technology groups.
+- Store project images and résumé files in `src/assets/`. The résumé download is configured in `src/components/Navbar.jsx`.
+- Edit `src/index.css` for shared visual tokens, layouts, responsive styling, and the warm-white minimal theme.
+- Keep the title and description in `index.html` aligned with public profile changes.
+
+The Warehouse Management System is an independent Laravel project. It has no public repository link. Thesis and bootcamp projects are labeled separately.
+
+The site uses a warm-white background (`#FAFAF9`) and charcoal text (`#18181B`). The hero uses a scoped GSAP entrance timeline; other sections use Framer Motion reveals. Both respect reduced-motion preferences. Contact email copying includes success and failure feedback.
