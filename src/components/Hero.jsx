@@ -15,7 +15,8 @@ const Hero = () => {
         .from(".hero-title-word", { yPercent: 105, duration: 0.75, stagger: 0.1 }, 0.1)
         .from(".hero-description", { y: 16, opacity: 0, duration: 0.6 }, 0.35)
         .from(".hero-actions > a", { y: 12, opacity: 0, duration: 0.5, stagger: 0.08 }, 0.5)
-        .from(".hero-portrait", { y: 20, opacity: 0, duration: 0.85 }, 0.2);
+        .from(".hero-portrait", { y: 20, opacity: 0, duration: 0.8 }, 0.2)
+        .from(".hero-portrait img", { clipPath: 'inset(0 0 8% 0)', duration: 0.8, clearProps: 'clipPath' }, 0.2);
     }, heroRef);
 
     // Revert inline styles and timelines on unmount, StrictMode replay,

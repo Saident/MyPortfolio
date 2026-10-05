@@ -1,4 +1,4 @@
-import { LazyMotion, domAnimation } from 'framer-motion'
+import InteractiveGrid from './components/InteractiveGrid'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -8,7 +8,8 @@ import Contact from './components/Contact'
 
 function App() {
   return (
-    <LazyMotion features={domAnimation} strict>
+    <>
+      <InteractiveGrid />
       <a className="skip-link" href="#main">Skip to content</a>
       <Navbar />
       <main id="main" tabIndex={-1}>
@@ -18,7 +19,7 @@ function App() {
         <Skills />
         <Contact />
       </main>
-    </LazyMotion>
+    </>
   )
 }
 

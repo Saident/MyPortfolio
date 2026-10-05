@@ -9,7 +9,7 @@ const About = () => (
     <div className="about-content">
       <ScrollReveal width="100%" className="about-copy">
         <p className="body-large">I'm Averil, a {profile.role.toLowerCase()} at <strong>{profile.employer}</strong>. I work across the stack, connecting backend logic, databases, and the interfaces people use.</p>
-        <p>My background is in Information Technology at Universitas Brawijaya. Alongside my professional work, I built an independent Warehouse Management System with Laravel. I continue to develop my engineering skills through hands-on projects.</p>
+        <p>My background is in Information Technology at Universitas Brawijaya. Alongside my professional work, I take on side projects and freelance work, building web applications and exploring new ideas.</p>
         <p>Outside of development, I enjoy fishing, coffee, and movies.</p>
       </ScrollReveal>
       <ScrollReveal delay={0.1} width="100%">
