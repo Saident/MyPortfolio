@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
-import profileImage from "../assets/profile1.jpeg";
+import profileImage from "../assets/profile2.jpeg";
 import { profile } from '../data/portfolio';
 
 const Hero = () => {
