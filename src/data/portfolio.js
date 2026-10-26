@@ -1,3 +1,4 @@
+import wmsImage from '../assets/WMS.png'
 // import dashboardImage from '../assets/dashboard.png'
 // import womenCenterImage from '../assets/women center.jpeg'
 
@@ -19,6 +20,8 @@ export const projects = [
     description: 'An independent Laravel application for warehouse management system.',
     contribution: 'Full-stack development',
     tags: ['Laravel', 'PHP', 'Blade', 'PostgreSQL'],
+    image: wmsImage,
+    imageAlt: 'Warehouse Management System dashboard with revenue charts, inventory navigation, and receivables summaries',
     featured: true,
   },
   // {
