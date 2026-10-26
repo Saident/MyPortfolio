@@ -121,8 +121,8 @@ h3 { font-weight: 500; letter-spacing: -0.035em; }
 .featured-aside > span { color: var(--muted); }
 .featured-aside > p { font-size: clamp(2.5rem, 4.5vw, 4rem); font-weight: 500; letter-spacing: -0.04em; line-height: 1.1; margin-top: 20px; }
 .featured-aside > .text-link { align-self: flex-start; }
-.project-image { background: var(--raised); border-radius: 4px; overflow: hidden; aspect-ratio: 16 / 9; border: 1px solid var(--line); padding: 24px; }
-.project-image img { width: 100%; height: 100%; object-fit: contain; object-position: center; transition: transform 0.4s ease; }
+.project-image { background: var(--raised); border-radius: 4px; overflow: hidden; aspect-ratio: 16 / 9; }
+.project-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.4s ease; }
 .project:hover .project-image img { transform: scale(1.025); }
 .project-content { padding-top: 32px; max-width: 720px; }
 .skills-section { border-top: 1px solid var(--line); }
@@ -180,7 +180,7 @@ h3 { font-weight: 500; letter-spacing: -0.035em; }
   .about-copy .body-large { font-size: 19px; }
   .experience-panel { padding: 26px; }
   .project-grid { grid-template-columns: minmax(0, 1fr); gap: 56px; margin-top: 36px; }
-  .project-image { padding: 10px; aspect-ratio: 4 / 3; }
+  .project-image { aspect-ratio: 4 / 3; }
   .project-featured { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 26px; }
   .featured-aside { border-left: 0; border-top: 1px solid var(--line); padding: 24px 0 0; }
   .featured-aside > p { font-size: 2.7rem; }
