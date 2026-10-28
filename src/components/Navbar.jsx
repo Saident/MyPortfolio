@@ -1,5 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
+import { useEffect, useRef, useState } from "react";
 import { HamburgerMenuIcon, Cross2Icon, ArrowTopRightIcon } from "@radix-ui/react-icons";
 import resumePdf from "../assets/resume 2.pdf";
 
@@ -7,31 +6,7 @@ const navItems = ["Projects", "About", "Skills", "Contact"];
 
 const Navbar = ({ homePrefix = "" }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const headerRef = useRef(null);
-  const menuRef = useRef(null);
   const toggleRef = useRef(null);
-
-  useLayoutEffect(() => {
-    const media = gsap.matchMedia();
-    media.add('(prefers-reduced-motion: no-preference)', () => {
-      gsap.from('.wordmark, .desktop-nav, .menu-toggle', {
-        opacity: 0, y: -8, duration: 0.45, ease: 'power3.out', clearProps: 'transform,opacity',
-      });
-    }, headerRef);
-    return () => media.revert();
-  }, []);
-
-  useLayoutEffect(() => {
-    if (!isOpen) return;
-    const media = gsap.matchMedia();
-    media.add('(prefers-reduced-motion: no-preference)', () => {
-      gsap.from(menuRef.current.children, {
-        opacity: 0, y: -8, duration: 0.25, stagger: 0.035,
-        ease: 'power3.out', clearProps: 'transform,opacity',
-      });
-    });
-    return () => media.revert();
-  }, [isOpen]);
 
   useEffect(() => {
     const onKeyDown = (event) => {
@@ -52,7 +27,7 @@ const Navbar = ({ homePrefix = "" }) => {
   }, []);
 
   return (
-    <header className="site-header" ref={headerRef}>
+    <header className="site-header">
       <div className="container nav-bar">
         <a href={`${homePrefix}#home`} className="wordmark" aria-label="Averil, home">Averil.</a>
         <nav className="desktop-nav" aria-label="Main navigation">
@@ -68,7 +43,7 @@ const Navbar = ({ homePrefix = "" }) => {
         </button>
       </div>
       {isOpen && (
-        <nav id="mobile-navigation" className="mobile-nav container" aria-label="Mobile navigation" ref={menuRef}>
+        <nav id="mobile-navigation" className="mobile-nav container" aria-label="Mobile navigation">
           {navItems.map((item) => <a key={item} href={`${homePrefix}#${item.toLowerCase()}`} onClick={() => setIsOpen(false)}>{item}</a>)}
           <a href={resumePdf} download="CV - Averil Primayuda.pdf" onClick={() => setIsOpen(false)}>Download résumé <ArrowTopRightIcon aria-hidden="true" /></a>
         </nav>

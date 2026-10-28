@@ -93,11 +93,11 @@ function Inventory() {
   )
 }
 
-export default function WmsPreview() {
+export default function WmsPreview({ showCaption = true }) {
   return (
-    <figure className="wms-preview">
-      <figcaption className="wms-preview-caption"><span>WMS dashboard <span aria-hidden="true">/</span> Static preview · Dummy data</span><span>All menu groups expanded</span></figcaption>
-      <p className="wms-mobile-hint">Swipe horizontally to view the full dashboard. Scroll the sidebar to see every menu.</p>
+    <figure className="wms-preview" aria-label="Warehouse Management System dashboard with fictional data">
+      {showCaption && <figcaption className="wms-preview-caption"><span>WMS dashboard <span aria-hidden="true">/</span> Static preview · Dummy data</span><span>All menu groups expanded</span></figcaption>}
+      <p className="wms-mobile-hint">Swipe to explore the dashboard. Scroll the sidebar for all menus.</p>
       <div className="wms-viewport" tabIndex={0} role="region" aria-label="Static WMS dashboard preview; scroll horizontally on smaller screens">
         <div className="wms-shell" lang="id">
           <Sidebar />
@@ -116,7 +116,7 @@ export default function WmsPreview() {
           </div>
         </div>
       </div>
-      <p className="wms-demo-note">Dashboard and menu presentation recreated from the application source. All records are fictional; controls are inactive. Menu visibility in the application depends on permissions and enabled modules.</p>
+      <p className="wms-demo-note">Source-based preview with fictional data and inactive controls. Menu visibility in the application depends on permissions and enabled modules.</p>
     </figure>
   )
 }

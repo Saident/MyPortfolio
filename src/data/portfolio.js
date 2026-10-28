@@ -16,7 +16,7 @@ export const projects = [
   {
     title: 'Warehouse Management System',
     category: 'Software engineering case study',
-    description: 'A warehouse operations application connecting goods receiving, warehouse transfers, stock counts, and inventory movement reporting.',
+    description: 'Receiving, warehouse transfers, stock counts, and movement reporting in one application.',
     contribution: 'Full-stack development',
     tags: ['Laravel', 'PHP', 'MySQL', 'Blade', 'Tailwind CSS'],
     featured: true,

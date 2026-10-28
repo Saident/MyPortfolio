@@ -25,7 +25,7 @@ test('large jumps and reversals stay bounded, then settle completely', () => {
   assert.equal(moving, false)
   assert.equal(state.opacity, 0)
   assert.equal(state.visual, 0)
-  assert.deepEqual(state.points, Array(9).fill(400))
+  assert.deepEqual(state.points, Array(settings.trailLength + 1).fill(400))
 })
 test('30, 60 and 120 Hz produce consistent following motion', () => {
   const results = [30, 60, 120].map(hz => {

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-28T08:18:39.766488+00:00",
+  "generatedAt": "2026-10-28T09:26:50.013507+00:00",
   "title": "Averil Primayuda Portfolio",
   "extensions": {
     "colorMeta": {
@@ -105,24 +105,24 @@
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Hero Display",
-        "purpose": "Three-line hero statement; responsive variants documented in DESIGN.md."
+        "displayName": "Hero and Case Title",
+        "purpose": "32–60px Manrope, 1.15 line height; concise introduction without ornamental type."
       },
       "headline": {
         "displayName": "Section Heading",
-        "purpose": "Default section title with project and contact variants."
+        "purpose": "28–36px shared section scale."
       },
       "title": {
-        "displayName": "Skills Title",
-        "purpose": "Capability group titles."
+        "displayName": "Project Title",
+        "purpose": "24px project titles; 20px subgroup headings."
       },
       "body": {
-        "displayName": "Project Body",
-        "purpose": "Project details; related body variants are documented."
+        "displayName": "Reading Text",
+        "purpose": "17px desktop / 16px mobile, 1.75 line height, maximum 66ch measure."
       },
       "label": {
-        "displayName": "Monospace Label",
-        "purpose": "Project category and small annotations."
+        "displayName": "Metadata",
+        "purpose": "14px Manrope for navigation, metadata and captions; no monospace."
       },
       "wms-body": {
         "displayName": "WMS Compact Body",
@@ -139,30 +139,21 @@
     "motion": [
       {
         "name": "link-response",
-        "value": "180ms ease-out",
-        "purpose": "Arrow translations and underline reveals."
+        "value": "180ms ease-out; 2px arrow translation",
+        "purpose": "Small response for clickable links and actions."
       },
       {
-        "name": "hero-lines",
-        "value": "0.6s power3.out; stagger 0.07s",
-        "purpose": "GSAP hero entrance under normal motion preference."
+        "name": "heading-entrance",
+        "value": "450ms power2.out; y:8px; opacity:0.9",
+        "purpose": "Hero heading and section headings only. Native IntersectionObserver starts each section once around the lower 15% viewport boundary; disconnects after entry. No ScrollTrigger."
       },
       {
-        "name": "section-reveal",
-        "value": "0.55s power3.out; y:20px; opacity:0.7; delay<=0.12s",
-        "purpose": "Once at top 83%, then clear temporary styles."
-      },
-      {
-        "name": "feedback-confirmation",
-        "value": "0.18s power2.out",
-        "purpose": "Copy status opacity; reduced motion removes vertical translation."
+        "name": "scroll-trail",
+        "value": "Frame-rate-independent demand loop; six followers, 32px maximum spread, no glow",
+        "purpose": "Quiet document progress with complete follower fade on settlement."
       }
     ],
     "breakpoints": [
-      {
-        "name": "compact-desktop",
-        "value": "1100px"
-      },
       {
         "name": "inherited-tablet",
         "value": "1024px"
@@ -177,31 +168,39 @@
       }
     ],
     "accessibility": {
-      "focus": "2px cyan portfolio focus; 2px dark orange WMS focus",
-      "reducedMotion": "Portfolio GSAP entrances and ScrollTrail honor reduced motion. WMS preview is always static and has no animation lifecycle.",
-      "previewScrolling": "Labeled, focusable outer horizontal viewport and inner sidebar/dashboard vertical regions; static labels are not links, buttons, or disabled controls."
+      "focus": "2px cyan portfolio focus; 2px dark orange WMS inner-region focus; controls at least 44px tall",
+      "reducedMotion": "No entrance tweens, trail or portrait follow-through; WMS preview always static.",
+      "previewScrolling": "Native keyboard-operable disclosure around labeled focusable horizontal and vertical scroll regions. Inactive application labels remain noninteractive; scrollbars hidden without disabling scrolling."
     },
     "previewNotes": "Tonal ramps are generated display aids, not additional implementation tokens. Component HTML is illustrative and does not implement React behavior or downloads.",
     "wms": {
       "source": "/home/tsi02/wms-mcc/resources/views/dashboard and resources/views/layout/sidebar.blade.php",
       "presentation": "Static source-based recreation with all 8 sidebar sections and 27 submenu entries expanded",
       "font": "Self-hosted Plus Jakarta Sans, alias WMS Jakarta; 11px compact source dimensions, scoped to preview",
-      "responsive": "1100px minimum desktop composition in a native horizontal viewport; 850px bounded shell with independent sidebar/dashboard vertical scrolling; hint at 1199px or below",
+      "responsive": "1100px minimum source composition inside a native horizontal viewport. Bounded shell: homepage 560px, case study 640px, mobile 560px. Separate sidebar/dashboard vertical scrolling. Native outer disclosure defaults open on desktop homepage, closed on mobile and case study.",
       "data": "Fictional, visibly labeled dummy data; no backend connection",
-      "interaction": "No click actions, tooltips, forms, event listeners, observers, animation frames, or chart animations",
+      "interaction": "WMS has no click actions, tooltips, forms, listeners or chart animation. The external ProjectPreview disclosure can open/close; homepage listens for the 768px breakpoint.",
       "differences": "Expanded groups; all permission/feature-gated labels shown; Sales Order presentation at dashboard end; fictional identity/dates/records; small dark-orange contrast adjustments",
       "verificationBoundary": "Source templates/CSS inspected; no authenticated live WMS render or pixel-diff comparison. Implementation checks recorded in src/components/wms/README.md."
     },
     "scrollTrail": {
       "settings": "src/components/scrollTrailMotion.js",
-      "trailLength": 8,
-      "maxTrailDisplacement": 64,
-      "maxVisualDisplacement": 12,
+      "trailLength": 6,
+      "maxTrailDisplacement": 32,
+      "maxVisualDisplacement": 4,
       "followStrength": 18,
       "desktop": "min-width 768px; min-height 400px; fine pointer",
-      "mobile": "2px top progress, no follow-through",
+      "mobile": "1px top progress at 0.6 opacity; no follow-through",
       "reducedMotion": "Hidden, no frames",
-      "lifecycle": "Single on-demand RAF loop; cancels hidden, settled, unmounted; ResizeObserver and pageshow handle geometry/restoration"
+      "lifecycle": "Single on-demand RAF loop; cancels hidden, settled, unmounted; ResizeObserver and pageshow handle geometry/restoration",
+      "appearance": "320px maximum rail; 0.06 track opacity; no shadow or glow; head rests at 0.2 opacity"
+    },
+    "layout": {
+      "container": "1160px maximum",
+      "gutters": "48px desktop / 32px tablet / 20px mobile",
+      "sectionPadding": "clamp(56px,6vw,88px) per side; 56px mobile",
+      "measure": "66ch",
+      "caseIndex": "Normal flow at every width"
     }
   },
   "components": [
@@ -211,7 +210,7 @@
       "refersTo": "button-primary",
       "description": "Primary portfolio action.",
       "html": "<a class=\"ds-primary\" href=\"#projects\">View Projects <svg width=\"18\" height=\"18\" viewBox=\"0 0 15 15\" aria-hidden=\"true\"><path d=\"M3.5 11.5 11.5 3.5M3.5 3.5h8v8\" fill=\"none\" stroke=\"currentColor\"/></svg></a>",
-      "css": ".ds-primary{font-family:Manrope,ui-sans-serif,system-ui,sans-serif;display:inline-flex;align-items:center;gap:30px;min-height:48px;padding:16px 21px;border-radius:3px;background:var(--accent, #8BE9FD);color:var(--on-accent,#0B0D12);font-size:14px;font-weight:600;text-decoration:none;}.ds-primary:hover{opacity:.9;}.ds-primary:focus-visible{outline:2px solid var(--accent, #8BE9FD);outline-offset:6px;}.ds-primary svg{transition:transform 180ms ease-out;}.ds-primary:is(:hover,:focus-visible) svg{transform:translate(2px,-2px);}@media(prefers-reduced-motion:reduce){.ds-primary svg{transition:none;}}"
+      "css": ".ds-primary{font-family:Manrope,ui-sans-serif,system-ui,sans-serif;display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:12px 20px;border-radius:3px;background:var(--accent, #8BE9FD);color:var(--on-accent,#0B0D12);font-size:16px;font-weight:500;text-decoration:none;}.ds-primary:hover{opacity:.9;}.ds-primary:focus-visible{outline:2px solid var(--accent, #8BE9FD);outline-offset:6px;}.ds-primary svg{transition:transform 180ms ease-out;}.ds-primary:is(:hover,:focus-visible) svg{transform:translateX(2px);}@media(prefers-reduced-motion:reduce){.ds-primary svg{transition:none;}}"
     },
     {
       "name": "Text Link",
@@ -219,56 +218,42 @@
       "refersTo": "text-link",
       "description": "Underlined secondary action.",
       "html": "<a class=\"ds-text\" href=\"#contact\">Contact Me <svg width=\"18\" height=\"18\" viewBox=\"0 0 15 15\" aria-hidden=\"true\"><path d=\"M3.5 11.5 11.5 3.5M3.5 3.5h8v8\" fill=\"none\" stroke=\"currentColor\"/></svg></a>",
-      "css": ".ds-text{font-family:Manrope,ui-sans-serif,system-ui,sans-serif;display:inline-flex;align-items:center;gap:16px;min-height:44px;color:var(--ink, #F4F5F7);font-size:14px;font-weight:600;text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--line, #2A303B);}.ds-text:hover{text-decoration-color:currentColor;}.ds-text:focus-visible{outline:2px solid var(--accent, #8BE9FD);outline-offset:6px;}.ds-text svg{transition:transform 180ms ease-out;}.ds-text:is(:hover,:focus-visible) svg{transform:translate(2px,-2px);}@media(prefers-reduced-motion:reduce){.ds-text svg{transition:none;}}"
+      "css": ".ds-text{font-family:Manrope,ui-sans-serif,system-ui,sans-serif;display:inline-flex;align-items:center;gap:12px;min-height:44px;color:var(--ink, #F4F5F7);font-size:16px;font-weight:500;text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--line, #2A303B);}.ds-text:hover{text-decoration-color:currentColor;}.ds-text:focus-visible{outline:2px solid var(--accent, #8BE9FD);outline-offset:6px;}.ds-text svg{transition:transform 180ms ease-out;}.ds-text:is(:hover,:focus-visible) svg{transform:translateX(2px);}@media(prefers-reduced-motion:reduce){.ds-text svg{transition:none;}}"
     },
     {
-      "name": "R\u00e9sum\u00e9 Control",
+      "name": "Résumé Control",
       "kind": "button",
       "refersTo": "resume-link",
-      "description": "Outlined download styling.",
-      "html": "<a class=\"ds-resume\" href=\"#resume\">R\u00e9sum\u00e9 <svg width=\"18\" height=\"18\" viewBox=\"0 0 15 15\" aria-hidden=\"true\"><path d=\"M3.5 11.5 11.5 3.5M3.5 3.5h8v8\" fill=\"none\" stroke=\"currentColor\"/></svg></a>",
-      "css": ".ds-resume{font-family:Manrope,ui-sans-serif,system-ui,sans-serif;display:inline-flex;align-items:center;gap:22px;border:1px solid var(--line, #2A303B);padding:10px 17px;border-radius:4px;color:var(--muted, #A0A8B7);font-size:14px;text-decoration:none;}.ds-resume:hover{color:var(--accent, #8BE9FD);}.ds-resume:focus-visible{outline:2px solid var(--accent, #8BE9FD);outline-offset:6px;}"
+      "description": "Plain résumé download link in persistent navigation.",
+      "html": "<a class=\"ds-resume\" href=\"#resume\">Résumé <svg width=\"18\" height=\"18\" viewBox=\"0 0 15 15\" aria-hidden=\"true\"><path d=\"M3.5 11.5 11.5 3.5M3.5 3.5h8v8\" fill=\"none\" stroke=\"currentColor\"/></svg></a>",
+      "css": ".ds-resume{font-family:Manrope,ui-sans-serif,system-ui,sans-serif;display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--ink,#F4F5F7);font-size:14px;text-decoration:none;}.ds-resume:focus-visible{outline:2px solid var(--accent,#8BE9FD);outline-offset:5px;}"
     },
     {
       "name": "Copy Control",
       "kind": "button",
       "refersTo": "copy-button",
-      "description": "Small outlined action with a tonal hover.",
+      "description": "44px email copy control with persistent live status space.",
       "html": "<button class=\"ds-copy\" type=\"button\">Copy email</button>",
-      "css": ".ds-copy{font-family:Manrope,ui-sans-serif,system-ui,sans-serif;border:1px solid var(--line, #2A303B);background:transparent;color:var(--muted, #A0A8B7);border-radius:4px;padding:11px 15px;font-size:12px;cursor:pointer;}.ds-copy:hover{background:var(--raised, #151922);color:var(--ink, #F4F5F7);}.ds-copy:focus-visible{outline:2px solid var(--accent, #8BE9FD);outline-offset:6px;}"
-    },
-    {
-      "name": "Technology Tag",
-      "kind": "chip",
-      "refersTo": "project-tag",
-      "description": "Noninteractive project technology label.",
-      "html": "<span class=\"ds-tag\">Laravel</span>",
-      "css": ".ds-tag{font-family:Manrope,ui-sans-serif,system-ui,sans-serif;display:inline-block;font-size:12px;color:var(--ink, #F4F5F7);padding:6px 10px;border-radius:4px;background:var(--raised, #151922);}"
-    },
-    {
-      "name": "Experience Panel",
-      "kind": "card",
-      "refersTo": "experience-panel",
-      "description": "Quiet flat container with a first-child heading.",
-      "html": "<article class=\"ds-experience\"><h3>Software Developer</h3><p>Experience and responsibilities</p></article>",
-      "css": ".ds-experience{font-family:Manrope,ui-sans-serif,system-ui,sans-serif;background:var(--raised, #151922);color:var(--ink, #F4F5F7);padding:25px;border-radius:4px;}.ds-experience h3{margin:0;font-size:22px;font-weight:500;letter-spacing:-.03em;}.ds-experience p{margin:24px 0 0;color:var(--muted, #A0A8B7);font-size:13px;line-height:1.6;}"
+      "css": ".ds-copy{font-family:Manrope,ui-sans-serif,system-ui,sans-serif;border:1px solid var(--line, #2A303B);background:transparent;color:var(--muted, #A0A8B7);border-radius:3px;min-height:44px;padding:8px 14px;font-size:14px;cursor:pointer;}.ds-copy:hover{border-color:var(--muted,#A0A8B7);color:var(--ink, #F4F5F7);}.ds-copy:focus-visible{outline:2px solid var(--accent, #8BE9FD);outline-offset:6px;}"
     },
     {
       "name": "Desktop Navigation",
       "kind": "nav",
       "refersTo": "navigation",
-      "description": "Opaque navigation with understated underline states.",
+      "description": "Stable opaque navigation with plain links and visible focus.",
       "html": "<nav class=\"ds-nav\" aria-label=\"Example navigation\"><a class=\"ds-mark\" href=\"#home\">Averil.</a><div class=\"ds-nav-items\"><a href=\"#projects\">Projects</a><a href=\"#about\">About</a><a href=\"#contact\">Contact</a></div></nav>",
-      "css": ".ds-nav{font-family:Manrope,ui-sans-serif,system-ui,sans-serif;height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:var(--surface, #0B0D12);border-bottom:1px solid var(--line, #2A303B);color:var(--muted, #A0A8B7);}.ds-nav a{color:inherit;text-decoration:none;}.ds-nav .ds-mark{font-size:25px;font-weight:700;letter-spacing:-.04em;color:var(--ink, #F4F5F7);}.ds-nav-items{display:flex;gap:32px;font-size:14px;}.ds-nav-items a{position:relative;padding:12px 0;}.ds-nav-items a::after{content:\"\";position:absolute;bottom:5px;left:0;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform 180ms ease-out;}.ds-nav-items a:is(:hover,:focus-visible)::after{transform:scaleX(1);}.ds-nav-items a:hover{color:var(--accent, #8BE9FD);}.ds-nav a:focus-visible{outline:2px solid var(--accent, #8BE9FD);outline-offset:6px;}@media(prefers-reduced-motion:reduce){.ds-nav-items a::after{transition:none;}}"
+      "css": ".ds-nav{font-family:Manrope,ui-sans-serif,system-ui,sans-serif;min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:var(--surface,#0B0D12);border-bottom:1px solid var(--line,#2A303B);color:var(--muted,#A0A8B7);}.ds-nav a{display:inline-flex;align-items:center;min-height:44px;color:inherit;text-decoration:none;}.ds-nav .ds-mark{font-size:24px;font-weight:700;letter-spacing:-.035em;color:var(--ink,#F4F5F7);}.ds-nav-items{display:flex;gap:28px;font-size:14px;}.ds-nav a:hover{color:var(--ink,#F4F5F7);}.ds-nav a:focus-visible{outline:2px solid var(--accent,#8BE9FD);outline-offset:5px;}"
     }
   ],
   "narrative": {
-    "overview": "Text-led dark editorial portfolio with a static WMS dashboard and full expanded sidebar recreated from source. Explicitly labeled fictional data and inactive controls. No AP sculpture or screenshot presentation.",
+    "overview": "Minimal dark editorial portfolio. Readable typography, a concise hero and one substantial WMS project lead the page. Full source-derived dashboard and technical explanations use native disclosure; fictional data and inactive application controls remain explicit.",
     "principles": [
-      "Source-based project presentation with an explicit verification boundary",
-      "Visibly labeled fictional data and inactive controls",
-      "Native keyboard/touch scrolling of the preserved desktop dashboard",
-      "Portfolio Manrope and embedded WMS Jakarta remain scoped to their respective surfaces"
+      "Projects and readable explanations lead; motion stays quiet",
+      "One primary action, concise project metadata, whitespace instead of nested cards",
+      "Preserve all verified content; disclose dense source UI and engineering details progressively",
+      "Source-based project presentation with explicit fictional data and verification boundaries",
+      "Native keyboard and touch scrolling; inactive application controls",
+      "Portfolio Manrope and embedded WMS Jakarta are the only font families"
     ]
   }
 }

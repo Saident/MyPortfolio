@@ -4,24 +4,14 @@ import { profile } from '../data/portfolio';
 
 const About = () => (
   <section id="about" className="container section about-section">
-    <ScrollReveal width="100%">
-      <h2>Software with<br /><span className="muted">a practical purpose.</span></h2>
-    </ScrollReveal>
+    <ScrollReveal width="100%"><h2>About me</h2></ScrollReveal>
     <div className="about-content">
-      <figure className="about-portrait"><div className="portrait-window"><img data-scroll-follow src={profileImage} alt="Averil Primayuda" width="960" height="1280" loading="lazy" /></div><figcaption>Averil Primayuda / Software Developer</figcaption></figure>
-      <ScrollReveal width="100%" className="about-copy">
-        <p className="body-large">I'm Averil, a {profile.role.toLowerCase()} at <strong>{profile.employer}</strong>. I work across the stack, connecting backend logic, databases, and the interfaces people use.</p>
+      <figure className="about-portrait"><div className="portrait-window"><img data-scroll-follow src={profileImage} alt="Averil Primayuda" width="960" height="1280" loading="lazy" /></div></figure>
+      <div className="about-copy">
+        <p>I'm Averil, a {profile.role.toLowerCase()} at <strong>{profile.employer}</strong>. I work across the stack, connecting backend logic, databases, and the interfaces people use.</p>
         <p>My background is in Information Technology at Universitas Brawijaya. Alongside my professional work, I take on side projects and freelance work, building web applications and exploring new ideas.</p>
         <p>Outside of development, I enjoy fishing, coffee, and movies.</p>
-      </ScrollReveal>
-      <ScrollReveal delay={0.1} width="100%">
-        <aside className="experience-panel" aria-label="Current role">
-          <h3>{profile.role}</h3>
-          <p className="employer">{profile.employer}</p>
-          <div className="experience-detail"><span>Focus</span><p>Web applications &amp; full-stack development</p></div>
-          <div className="experience-detail"><span>Education</span><p>Information Technology<br />Universitas Brawijaya</p></div>
-        </aside>
-      </ScrollReveal>
+      </div>
     </div>
   </section>
 );

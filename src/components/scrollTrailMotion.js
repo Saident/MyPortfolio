@@ -1,9 +1,9 @@
 export const scrollTrailSettings = Object.freeze({
   accentColor: 'var(--accent)',
-  trailLength: 8,
+  trailLength: 6,
   followStrength: 18,
-  maxTrailDisplacement: 64,
-  maxVisualDisplacement: 12,
+  maxTrailDisplacement: 32,
+  maxVisualDisplacement: 4,
 })
 
 export const clamp = (value, min, max) => Math.min(max, Math.max(min, value))

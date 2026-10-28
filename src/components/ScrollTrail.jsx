@@ -26,7 +26,7 @@ export default function ScrollTrail() {
       state.points.forEach((point, index) => {
         const y = clamp(point, 0, railHeight)
         dots[index].style.transform = `translate3d(${curveX(y / railHeight)}px, ${y}px, 0)`
-        dots[index].style.opacity = String(index === 0 ? 0.35 + state.opacity * 0.65 : state.opacity * (1 - index / dots.length) * 0.65)
+        dots[index].style.opacity = String(index === 0 ? 0.2 + state.opacity * 0.35 : state.opacity * (1 - index / dots.length) * 0.35)
       })
       if (portrait) portrait.style.transform = portraitVisible ? `translate3d(0, ${state.visual}px, 0)` : ''
     }
@@ -100,7 +100,7 @@ export default function ScrollTrail() {
   return <div ref={root} className="scroll-trail" aria-hidden="true" style={{ '--trail-accent': settings.accentColor }}>
     <div className="scroll-trail-rail">
       <svg viewBox="0 0 14 1000" preserveAspectRatio="none"><path d="M7 0 C11 333.333 3 666.667 7 1000" /></svg>
-      {Array.from({ length: settings.trailLength + 1 }, (_, index) => <span className="scroll-trail-dot" key={index} style={{ width: `${Math.max(2, 5 - index * 0.35)}px`, height: `${Math.max(2, 5 - index * 0.35)}px` }} />)}
+      {Array.from({ length: settings.trailLength + 1 }, (_, index) => <span className="scroll-trail-dot" key={index} style={{ width: `${Math.max(1.5, 3.5 - index * 0.3)}px`, height: `${Math.max(1.5, 3.5 - index * 0.3)}px` }} />)}
     </div>
     <div className="scroll-trail-progress" />
   </div>
