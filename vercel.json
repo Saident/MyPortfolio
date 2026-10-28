@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/projects/warehouse-management-system", "destination": "/index.html" },
+    { "source": "/projects/warehouse-management-system/", "destination": "/index.html" }
+  ]
+}

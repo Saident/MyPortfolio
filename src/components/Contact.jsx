@@ -1,3 +1,4 @@
+import { ArrowTopRightIcon, ArrowUpIcon } from '@radix-ui/react-icons';
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -53,18 +54,18 @@ const Contact = () => {
           <h2>Let's connect<span className="accent">.</span></h2>
           <p className="section-intro">Have a question about my work or a project to discuss? Send me a message.</p>
           <div className="email-row">
-            <a href={`mailto:${profile.email}`} className="email-link">{profile.email}<span aria-hidden="true">↗</span></a>
+            <a href={`mailto:${profile.email}`} className="email-link">{profile.email}<ArrowTopRightIcon aria-hidden="true" /></a>
             <button type="button" className="copy-button" onClick={handleCopy}>Copy email</button>
           </div>
           <p className="copy-feedback" role="status" ref={feedbackRef}>{feedback}</p>
           <div className="contact-links">
-            <a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub <ArrowTopRightIcon aria-hidden="true" /></a>
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <ArrowTopRightIcon aria-hidden="true" /></a>
             <a href={`tel:${profile.phoneLink}`}>{profile.phone}</a>
           </div>
         </ScrollReveal>
       </section>
-      <footer className="container site-footer" ref={footerRef}><span>© {new Date().getFullYear()} {profile.name}</span><a href="#home">Back to top ↑</a></footer>
+      <footer className="container site-footer" ref={footerRef}><span>© {new Date().getFullYear()} {profile.name}</span><a href="#home">Back to top <ArrowUpIcon aria-hidden="true" /></a></footer>
     </>
   );
 };

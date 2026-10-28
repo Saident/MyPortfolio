@@ -1,11 +1,11 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import { HamburgerMenuIcon, Cross2Icon } from "@radix-ui/react-icons";
+import { HamburgerMenuIcon, Cross2Icon, ArrowTopRightIcon } from "@radix-ui/react-icons";
 import resumePdf from "../assets/resume 2.pdf";
 
-const navItems = ["About", "Skills", "Projects", "Contact"];
+const navItems = ["Projects", "About", "Skills", "Contact"];
 
-const Navbar = () => {
+const Navbar = ({ homePrefix = "" }) => {
   const [isOpen, setIsOpen] = useState(false);
   const headerRef = useRef(null);
   const menuRef = useRef(null);
@@ -54,10 +54,10 @@ const Navbar = () => {
   return (
     <header className="site-header" ref={headerRef}>
       <div className="container nav-bar">
-        <a href="#home" className="wordmark" aria-label="Averil, home">Averil.</a>
+        <a href={`${homePrefix}#home`} className="wordmark" aria-label="Averil, home">Averil.</a>
         <nav className="desktop-nav" aria-label="Main navigation">
-          {navItems.map((item) => <a key={item} href={`#${item.toLowerCase()}`}>{item}</a>)}
-          <a className="resume-link" href={resumePdf} download="CV - Averil Primayuda.pdf">Résumé <span aria-hidden="true">↗</span></a>
+          {navItems.map((item) => <a key={item} href={`${homePrefix}#${item.toLowerCase()}`}>{item}</a>)}
+          <a className="resume-link" href={resumePdf} download="CV - Averil Primayuda.pdf">Résumé <ArrowTopRightIcon aria-hidden="true" /></a>
         </nav>
         <button type="button" className="menu-toggle" ref={toggleRef} onClick={() => setIsOpen((open) => !open)} aria-expanded={isOpen} aria-controls="mobile-navigation">
           <span className="menu-toggle-label">{isOpen ? "Close" : "Menu"}</span>
@@ -69,8 +69,8 @@ const Navbar = () => {
       </div>
       {isOpen && (
         <nav id="mobile-navigation" className="mobile-nav container" aria-label="Mobile navigation" ref={menuRef}>
-          {navItems.map((item) => <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsOpen(false)}>{item}</a>)}
-          <a href={resumePdf} download="CV - Averil Primayuda.pdf" onClick={() => setIsOpen(false)}>Download résumé ↗</a>
+          {navItems.map((item) => <a key={item} href={`${homePrefix}#${item.toLowerCase()}`} onClick={() => setIsOpen(false)}>{item}</a>)}
+          <a href={resumePdf} download="CV - Averil Primayuda.pdf" onClick={() => setIsOpen(false)}>Download résumé <ArrowTopRightIcon aria-hidden="true" /></a>
         </nav>
       )}
     </header>

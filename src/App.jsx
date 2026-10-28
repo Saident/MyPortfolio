@@ -1,4 +1,6 @@
-import InteractiveGrid from './components/InteractiveGrid'
+import ProjectCaseStudy from './pages/ProjectCaseStudy'
+import { projects } from './data/portfolio'
+import ScrollTrail from './components/ScrollTrail'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -7,17 +9,21 @@ import Projects from './components/Projects'
 import Contact from './components/Contact'
 
 function App() {
+  const path = window.location.pathname.replace(/\/$/, '') || '/'
+  const project = projects.find(item => item.caseStudyPath === path)
   return (
     <>
-      <InteractiveGrid />
+      <ScrollTrail />
       <a className="skip-link" href="#main">Skip to content</a>
-      <Navbar />
+      <Navbar homePrefix={project ? '/' : ''} />
       <main id="main" tabIndex={-1}>
+        {project ? <ProjectCaseStudy project={project} /> : <>
         <Hero />
-        <About />
         <Projects />
+        <About />
         <Skills />
         <Contact />
+        </>}
       </main>
     </>
   )
