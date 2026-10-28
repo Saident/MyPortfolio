@@ -38,6 +38,12 @@ desktop composition rather than shrinking the text. Scrollbar tracks and thumbs 
 at the user's request. Native scrolling still works with touch, mouse wheel
 and keyboard. The preview adds no event listeners, observers or animation frames.
 
+The portfolio's `ProjectPreview` wrapper now adds a native disclosure, initially
+expanded on the desktop homepage and collapsed on mobile and in the case study.
+Its bounded height is 560px on the homepage and 640px in the case study (560px on
+mobile). This changes the embedding, not the source dashboard content or controls.
+All 8 sidebar groups and 27 submenu entries remain available when expanded.
+
 The Sales Order control is static and placed at the dashboard's end instead of
 floating over the portfolio. Its dark foreground and a few orange icon/label
 foregrounds use the source's accessible dark-orange option for readable contrast.

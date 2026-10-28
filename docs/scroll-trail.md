@@ -3,15 +3,26 @@
 ## Changed files
 
 - `src/components/ScrollTrail.jsx`: replaces ReadingProgress with one coordinated on-demand animation loop, responsive/reduced-motion modes, resize/content-height observers, restored-scroll synchronization, visibility handling and cleanup.
-- `src/components/scrollTrailMotion.js`: frame-rate-independent follower model and named settings: accentColor, trailLength (default 8; use 6–10), followStrength, maxTrailDisplacement (64px), maxVisualDisplacement (12px).
+- `src/components/scrollTrailMotion.js`: frame-rate-independent follower model and named settings: accentColor, trailLength (6), followStrength (18), maxTrailDisplacement (32px), maxVisualDisplacement (4px).
 - `src/App.jsx`: mounts ScrollTrail. Old ReadingProgress.jsx removed.
 - `src/components/About.jsx`, `src/index.css`: clipped portrait wrapper, bounded follow-through, faint rail/head/tail and mobile edge indicator.
 - `tests/scrollTrail.test.mjs`: progress limits, initial/restored positions, jumps/reversals, tail and portrait displacement bounds, complete settlement, and 30/60/120Hz consistency.
 - DESIGN.md, .impeccable/design.json, surface brief: current motion behavior.
 
-Existing GSAP entrance animations remain intact. The previous reading-progress requestAnimationFrame infrastructure is replaced rather than adding a competing progress loop or animation library. No smooth scrolling or cursor tracking is introduced. No 3D artwork or project screenshot exists; live WMS remains stationary. The portrait is the only visual with follow-through.
+The existing GSAP library animates only headings, with 8px movement and a 450ms duration. Native IntersectionObserver starts section entrances once and disconnects; ScrollTrigger is no longer imported. The reading-progress infrastructure uses one demand loop. No smooth scrolling or cursor tracking is introduced. No 3D artwork or project screenshot exists; the static WMS remains stationary. The portrait is the only visual with follow-through. The rail has no glow and a 320px maximum height; mobile uses a 1px progress line.
 
-## Verified locally
+## Latest verification: minimalist refinement
+
+- ESLint, production build and the existing Node motion tests pass with the new settings.
+- Chromium with an explicitly emulated fine pointer: slow increments, fast jumps and direction reversals animate six followers; the recorded active spread was about 31px, below the 32px cap. The recorded portrait offset was 2.64px, below its 4px cap. The model tests cover the strict bounds.
+- After settling: all followers at zero opacity, head at 0.2 opacity, portrait at zero offset. Instrumented total requestAnimationFrame count stayed at 307 across the following 500ms and pending frames stayed at zero. This includes the GSAP heading tweens, whose previous ScrollTrigger idle loop was removed.
+- Reduced motion: rail hidden, portrait transform cleared, headings fully visible, zero pending animation frames. Mobile touch emulation: top progress line updates; rail and portrait offsets are disabled.
+- Native dashboard disclosure opens with keyboard Enter; engineering details open with Space. Touch input pans the preview without page overflow. All 27 sidebar submenu labels remain present and scrollbar tracks stay hidden.
+- No JavaScript exceptions recorded in the final interaction run. This is browser instrumentation and deterministic model testing, not a real-device performance benchmark.
+
+## Earlier implementation verification
+
+The following observations apply to the earlier 8-follower / 64px / 12px configuration. The lifecycle is retained; they are historical checks, not measurements of the current visual settings.
 
 - Node test suite, ESLint, production build, whitespace checks passed.
 - Chromium scroll checks: slow increments, fast jumps, rapid reversals, anchor navigation, contact-hash reload/restoration, changing document height via WMS details expansion.
