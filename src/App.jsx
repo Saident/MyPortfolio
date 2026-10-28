@@ -1,3 +1,4 @@
+import { useLayoutEffect } from 'react'
 import ProjectCaseStudy from './pages/ProjectCaseStudy'
 import { projects } from './data/portfolio'
 import ScrollTrail from './components/ScrollTrail'
@@ -11,6 +12,11 @@ import Contact from './components/Contact'
 function App() {
   const path = window.location.pathname.replace(/\/$/, '') || '/'
   const project = projects.find(item => item.caseStudyPath === path)
+  useLayoutEffect(() => {
+    // Initial fragments can resolve before this client-rendered page exists.
+    const target = window.location.hash.slice(1)
+    if (target) document.getElementById(target)?.scrollIntoView({ block: 'start' })
+  }, [])
   return (
     <>
       <ScrollTrail />

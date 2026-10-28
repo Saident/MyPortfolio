@@ -73,6 +73,8 @@ are review artifacts, not public portfolio assets or WMS screenshots.
 - `src/components/wms/{WmsPreview.jsx,wms-preview.css}`: optional outer caption,
   compact wording and consistent source font; dashboard structure/data unchanged.
 - `src/data/portfolio.js`: shorter verified project summary.
+- `src/App.jsx`: resolve initial anchor destinations after React has mounted, so
+  case-study links to homepage sections actually scroll to their destination.
 - Design/product documentation and the WMS embedding notes reflect these changes.
 
 ## Checks performed
@@ -95,6 +97,9 @@ are review artifacts, not public portfolio assets or WMS screenshots.
   instrumented requestAnimationFrame scheduling stopped, with zero pending frames.
   Reduced motion hid the trail, cleared offsets and left headings fully visible.
 - No JavaScript exceptions in the final interaction check.
+- With both visibility/resize observers unavailable, headings and content still
+  render normally without exceptions. Main portfolio text and action colors were
+  calculated above 4.5:1 contrast against their actual surfaces.
 
 ## Boundaries
 
