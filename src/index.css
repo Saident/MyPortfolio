@@ -64,6 +64,20 @@ section { scroll-margin-top: 104px; }
 .skip-link { position: fixed; left: 16px; top: -120px; z-index: 30; padding: 12px 20px; background: var(--accent); color: var(--on-accent); }
 .skip-link:focus { top: 12px; }
 
+/* The initial HTML uses the same grid and type as React, including preview space. */
+.startup-menu { display: none; }
+.startup-menu > summary { list-style: none; }
+.startup-menu > summary::-webkit-details-marker { display: none; }
+.startup-menu > summary::marker { content: ''; }
+.startup-preview { display: grid; place-items: center; height: 560px; border-radius: 4px; background: var(--secondary); }
+.startup-preview p { max-width: 36ch; padding: 24px; color: var(--muted); text-align: center; font-size: var(--text-small); }
+.case-study .startup-preview { height: 640px; }
+.startup-disclosure .wms-mobile-hint { display: none; }
+.startup-disclosure .wms-demo-note { margin-bottom: 0; }
+@media (max-width: 1199px) {
+  .startup-disclosure .wms-mobile-hint { display: block; margin-bottom: 12px; }
+}
+
 /* Persistent navigation; only state changes animate. */
 .site-header { position: sticky; top: 0; z-index: 10; background: var(--surface); border-bottom: 1px solid var(--line); }
 .nav-bar { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
@@ -96,14 +110,18 @@ section { scroll-margin-top: 104px; }
   --line: #767676;
   --accent: var(--ink);
   --on-accent: var(--surface);
+  position: relative;
+  isolation: isolate;
   padding-block: clamp(48px, 6vw, 88px);
   color: var(--ink);
   background: var(--surface);
   color-scheme: dark;
 }
+.hero-contours { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; color: var(--line); opacity: .55; mask-image: linear-gradient(to right, transparent 35%, #000 90%); }
+.hero-contours path { fill: none; stroke: currentColor; stroke-width: 1; vector-effect: non-scaling-stroke; }
 .hero .button-primary:hover { background: #D6D6D6; }
 .hero-identity { font-size: 1rem; font-weight: 500; color: var(--muted); margin-bottom: 20px; }
-.hero-layout { display: grid; grid-template-columns: 1.2fr .8fr; align-items: end; gap: 64px; }
+.hero-layout { position: relative; z-index: 1; display: grid; grid-template-columns: 1.2fr .8fr; align-items: end; gap: 64px; }
 .hero-heading { display: flex; flex-direction: column; min-width: 0; }
 .hero-name { min-width: 0; font-size: var(--text-name); font-weight: 650; line-height: 1.08; letter-spacing: -.04em; text-wrap: initial; }
 .hero-name .type-mask + .type-mask { margin-top: .02em; }
@@ -268,6 +286,9 @@ section { scroll-margin-top: 104px; }
   .container { width: calc(100% - 40px); }
   .nav-bar { min-height: 64px; }
   .desktop-nav { display: none; }
+  .startup-menu { display: block; }
+  .startup-menu > summary { position: absolute; top: 10px; right: 20px; }
+  .case-study .startup-preview { height: 560px; }
   .menu-toggle { display: inline-flex; align-items: center; justify-content: flex-end; gap: 12px; min-width: 88px; min-height: 44px; padding: 8px 0 8px 12px; border: 0; background: transparent; color: var(--ink); font-size: var(--text-small); }
   .menu-toggle-icon { position: relative; width: 20px; height: 20px; }
   .menu-toggle-icon svg { position: absolute; inset: 0; width: 20px; height: 20px; transition: opacity 150ms ease-out; }
@@ -277,6 +298,9 @@ section { scroll-margin-top: 104px; }
   .mobile-nav { display: flex; flex-direction: column; padding-block: 8px 16px; }
   .mobile-nav a { display: flex; align-items: center; min-height: 44px; gap: 12px; padding-block: 8px; }
   .hero { padding-block: 48px 56px; }
+  .hero-contours { inset: auto 0 0; height: 144px; }
+  .hero-contours path { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; }
+  .hero-contours path:nth-child(n + 3) { display: none; }
   .hero-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .hero-identity { margin-bottom: 16px; }
   .hero-name { font-size: var(--text-name); }
@@ -317,5 +341,6 @@ section { scroll-margin-top: 104px; }
   .scroll-trail { display: none; }
   .type-mask { overflow: visible; }
   .type-line { transform: none !important; opacity: 1 !important; }
+  .hero-contours path { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; }
   .about-portrait .portrait-window img { position: static; height: 100%; transform: none !important; }
 }

@@ -8,6 +8,7 @@ import About from './components/About'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
+import { startupState } from './startup'
 
 function App() {
   const path = window.location.pathname.replace(/\/$/, '') || '/'
@@ -16,6 +17,9 @@ function App() {
     // Initial fragments can resolve before this client-rendered page exists.
     const target = window.location.hash.slice(1)
     if (target) document.getElementById(target)?.scrollIntoView({ block: 'start' })
+    const focused = startupState.focusControl ? document.querySelector(startupState.focusControl)
+      : startupState.focusHref ? [...document.querySelectorAll('a[href]')].find(link => link.getAttribute('href') === startupState.focusHref && link.getClientRects().length) : null
+    focused?.focus({ preventScroll: true })
   }, [])
   return (
     <>

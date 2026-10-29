@@ -17,6 +17,15 @@
         ],
         "createdAt": "2026-10-29T06:03:28.115Z",
         "reason": "Agent verified the JavaScript-disabled production fallback in Chromium: desktop h1/h2/h3 are 96/36/24px over 17px body; mobile 44/28/24px over 17px body. The standalone HTML scan misses the fluid h1 and bundled heading rules and incorrectly reports h2/h3 at 17px."
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-29T07:17:28.497Z",
+        "reason": "Agent verified the JavaScript-disabled production fallback in Chromium: hero content insets are 140px horizontally and 86.4px vertically at 1440px; 32px horizontally and 48px vertically at 768px; 20px horizontally and 48px top/56px bottom at 360px. The standalone HTML scan sees the inline hero background but misses padding and container gutters supplied by the linked shared stylesheet. No rendered overflow."
       }
     ]
   }

@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { HamburgerMenuIcon, Cross2Icon, ArrowTopRightIcon } from "@radix-ui/react-icons";
 import resumePdf from "../assets/resume 2.pdf";
+import { startupState } from '../startup';
 
 const navItems = ["Projects", "About", "Skills", "Contact"];
 
 const Navbar = ({ homePrefix = "" }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(startupState.menuOpen);
   const toggleRef = useRef(null);
 
   useEffect(() => {
