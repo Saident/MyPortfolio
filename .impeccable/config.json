@@ -8,6 +8,15 @@
         "value": "wms jakarta",
         "createdAt": "2026-10-28T08:17:33.542Z",
         "reason": "User requested a 1:1 WMS source recreation; WMS Jakarta aliases its original Plus Jakarta Sans font, scoped only to the embedded static dashboard."
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-29T06:03:28.115Z",
+        "reason": "Agent verified the JavaScript-disabled production fallback in Chromium: desktop h1/h2/h3 are 96/36/24px over 17px body; mobile 44/28/24px over 17px body. The standalone HTML scan misses the fluid h1 and bundled heading rules and incorrectly reports h2/h3 at 17px."
       }
     ]
   }

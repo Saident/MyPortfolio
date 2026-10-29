@@ -1,9 +1,9 @@
 import ScrollReveal from "./ScrollReveal";
 
 const skillGroups = [
-  { title: "Backend", skills: ["PHP", "Laravel", "Blade", "Go", "Gin", "Java"] },
-  { title: "Frontend", skills: ["JavaScript", "React", "Tailwind CSS"] },
-  { title: "Data & workflow", skills: ["PostgreSQL", "MySQL", "Git", "Docker", "AWS", "Postman", "AI tools"] },
+  { title: "Backend", skills: ["PHP", "Laravel", "Go", "Gin", "Java"] },
+  { title: "Frontend", skills: ["JavaScript", "React", "Blade", "Tailwind CSS"] },
+  { title: "Data & workflow", skills: ["PostgreSQL", "MySQL", "Git", "Docker", "WSL", "AWS", "Postman", "AI tools"] },
 ];
 
 const Skills = () => (

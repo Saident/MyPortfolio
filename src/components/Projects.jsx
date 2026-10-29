@@ -11,7 +11,7 @@ export default function Projects() {
         <article className="project" key={project.title}>
           <div className="project-intro">
             <div>
-              <h3>{project.title}</h3>
+              <h3><a className="project-title-link" href={project.caseStudyPath}>{project.title}</a></h3>
               <p className="project-description">{project.description}</p>
               <p className="project-metadata">{project.contribution}<span aria-hidden="true"> · </span>{project.tags.slice(0, 3).join(' · ')}</p>
             </div>

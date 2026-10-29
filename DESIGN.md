@@ -1,14 +1,16 @@
 ---
 name: Averil Primayuda Portfolio
-description: Minimal, readable software portfolio with a source-based static WMS dashboard preview.
+description: White editorial portfolio with kinetic name typography and an authentic-color static WMS preview.
 colors:
-  surface: "#0B0D12"
-  raised: "#151922"
-  ink: "#F4F5F7"
-  muted: "#A0A8B7"
-  line: "#2A303B"
-  accent: "#8BE9FD"
-  on-accent: "#0B0D12"
+  surface: "#FFFFFF"
+  secondary: "#F5F5F5"
+  raised: "#EFEFEF"
+  ink: "#111111"
+  muted: "#595959"
+  quiet: "#707070"
+  line: "#D6D6D6"
+  accent: "#111111"
+  on-accent: "#FFFFFF"
   wms-surface: "#f3f6fa"
   wms-panel: "rgba(255,255,255,.82)"
   wms-primary: "#ff9c00"
@@ -19,6 +21,12 @@ colors:
   wms-ink: "#27303c"
   wms-muted: "#657082"
 typography:
+  identity:
+    fontFamily: "Manrope, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(2.75rem, 8vw, 6rem)"
+    fontWeight: 650
+    lineHeight: 1.08
+    letterSpacing: "-0.04em"
   wms-body:
     fontFamily: "WMS Jakarta, sans-serif"
     fontSize: "11px"
@@ -34,7 +42,7 @@ typography:
   headline:
     fontFamily: "Manrope, ui-sans-serif, system-ui, sans-serif"
     fontSize: "clamp(1.75rem, 2.8vw, 2.25rem)"
-    fontWeight: 500
+    fontWeight: 550
     lineHeight: 1.25
     letterSpacing: "-0.025em"
   title:
@@ -48,6 +56,26 @@ typography:
     fontSize: "1.0625rem"
     fontWeight: 400
     lineHeight: 1.75
+  body-mobile:
+    fontFamily: "Manrope, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 400
+    lineHeight: 1.75
+  lead:
+    fontFamily: "Manrope, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.125rem"
+    fontWeight: 400
+    lineHeight: 1.75
+  group-title:
+    fontFamily: "Manrope, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.25rem"
+    fontWeight: 500
+    lineHeight: 1.35
+  example-number:
+    fontFamily: "Manrope, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "2.5rem"
+    fontWeight: 500
+    lineHeight: 1.1
   label:
     fontFamily: "Manrope, ui-sans-serif, system-ui, sans-serif"
     fontSize: "0.875rem"
@@ -91,21 +119,23 @@ components:
 
 ## Overview
 
-Minimal dark editorial software developer portfolio. Typography establishes hierarchy; project evidence and concise explanations carry the page. A short introduction leads directly into selected work. A static WMS dashboard and complete sidebar recreated from source provide the main project presentation. Fictional records and inactive controls are explicitly labeled. The AP sculpture and WMS screenshot presentation remain removed at the user's request.
+White editorial software developer portfolio. Averil's name is the visual centerpiece, with a short masked entrance; project evidence and concise explanations carry the rest of the page. The existing section order, reading widths and substantial WMS case study remain. A static WMS dashboard and complete sidebar recreated from source provide the main project presentation. Fictional records and inactive controls are explicitly labeled. The AP sculpture and WMS screenshot presentation remain removed at the user's request.
 
 ## Colors
 
-Portfolio tokens remain unchanged. The embedded WMS interface preserves its light source palette, translucent white panels, orange transaction accent, indigo service accent, green stock/paid state, amber consignment state, and red outstanding state. Its neutral primitives are recorded in the frontmatter. The shell blends pale neutral gradients; sidebar selection includes a restrained orange wash. Dark orange (#9a5a00) supplies readable small accent foregrounds and inner focus outlines. Scope all dashboard styling under WMS classes; do not recolor this source-based interface to match portfolio chrome.
+The portfolio uses white backgrounds, near-black text, and neutral-gray secondary text, rules and surfaces. `--accent` aliases the ink token for actions, focus and the scroll trail; it is not a chromatic accent. The final user direction explicitly excludes the displayed project from monochrome styling.
+
+The embedded WMS interface therefore preserves its light source palette, translucent white panels, orange transaction accent, indigo service accent, green stock/paid state, amber consignment state, and red outstanding state. Its neutral primitives are recorded in the frontmatter. The shell blends pale neutral gradients; sidebar selection includes a restrained orange wash. Dark orange (#9a5a00) supplies readable small accent foregrounds and inner focus outlines. Scope all dashboard styling under WMS classes; do not recolor or desaturate this source-based interface to match portfolio chrome.
 
 ## Typography
 
-Self-hosted Manrope is the portfolio font, including metadata; no monospace companion is used. Body copy is 17px on desktop and 16px on mobile with 1.75 line height and a 66ch maximum measure. Heading roles use the shared scale above: 32–60px display, 28–36px sections, 24px project titles, 20px subgroup titles, and 14px metadata. Leads are 18px on desktop and 16px on mobile. Avoid ornamental all-caps labels and forced section-heading line breaks.
+Self-hosted Manrope is the portfolio font, including metadata; no monospace companion is used. Body copy is 17px on desktop and 16px on mobile with 1.75 line height and a 66ch maximum measure. The name uses a dedicated 44–96px scale at weight 650, separate from 32–60px case titles, 28–36px section headings at weight 550, 24px project titles, 20px subgroup titles, and 14px metadata. Leads are 18px on desktop and 16px on mobile. The verified Software Developer role is the small introductory label requested by the user. Avoid ornamental all-caps labels elsewhere.
 
 The embedded dashboard uses self-hosted Plus Jakarta Sans under the local alias `WMS Jakarta`, with its SIL Open Font License beside the asset. The compact source layout uses an 11px root; the preview translates those source dimensions to local pixels without changing the portfolio root. Its intentionally dense source-derived labels stay scoped to the artifact and are not scaled down further on mobile. These are the only two font families.
 
 ## Layout
 
-1160px maximum portfolio container with 48px desktop, 32px tablet and 20px mobile minimum gutters. Shared section padding scales from 56 to 88px per side. Hero and project spacing are tighter so selected work starts within the first desktop screen. About has a portrait and readable prose; verified skills use three plain groups without nested cards.
+1160px maximum portfolio container with 48px desktop, 32px tablet and 20px mobile minimum gutters. Shared section padding scales from 56 to 88px per side. The desktop hero places the two-line name on the left and the existing statement, description and actions on the right. It stacks below 900px, with a compact side-by-side support row on tablets and a normal vertical flow on phones. Selected work stays within the first desktop screen. About has a portrait and readable prose; verified skills use three plain groups without nested cards.
 
 The project summary has one primary case-study action and one quiet metadata line. Its native dashboard disclosure starts expanded at 768px and above, collapsed on mobile; the case-study dashboard starts collapsed. Readers can expand or close either with keyboard or pointer. The complete WMS is always in the document. Its source desktop composition retains an 1100px minimum width, a 211.75px sidebar, and 11px outer padding/gap. The portfolio wrapper bounds its height to 560px on the homepage and 640px in the case study (560px on mobile). Sidebar and main dashboard scroll vertically; the labeled, focusable outer viewport scrolls horizontally. A hint appears at 1199px or below. Native scrollbars remain hidden on the portfolio and all embedded scroll regions.
 
@@ -119,15 +149,19 @@ Portfolio controls use 3–4px radii. The embedded WMS viewport uses 4px corners
 
 ## Components
 
-Only the hero heading and section headings enter: 8px movement, opacity 0.9 to 1, 450ms power2.out, with no ordinary staggering. Native IntersectionObserver starts each section reveal once and disconnects; GSAP handles the tween. No ScrollTrigger import or persistent ScrollTrigger frame loop remains. Paragraphs, project controls, skills and contact controls stay stationary. Reduced motion shows all content immediately.
+The focal sequence introduces the role, then reveals the two name lines through masks: 32px movement, 780ms power3.out and 120ms stagger. Phones use 24px / 650ms. Supporting copy fades gently from 0.85 opacity, maintaining readable contrast; action links enter with 4px movement and 80ms stagger. All content is visible by default and stays selectable and semantic. Hash arrivals skip the hero entrance. No repeating or letter-by-letter animation.
 
-Fine-pointer screens at least 768px wide and 400px high use a faint, 320px maximum gutter rail with an accent head and six followers. Trail spread is capped at 32px with no glow; it follows actual document progress using exponential, substepped smoothing. The head rests at 0.2 opacity and followers fade completely. Small/coarse-pointer layouts show a 1px top progress line; reduced motion hides both. One coordinated trail frame loop stops when settled or hidden. The clipped About portrait has a maximum 4px transient follow-through. Settings live in src/components/scrollTrailMotion.js. WmsPreview itself has no animation or event listeners; its external native disclosure has one responsive media-query listener on the homepage.
+Section headings use the same mask vocabulary at 16px / 600ms (10px on phones). Native IntersectionObserver starts each once, then disconnects; GSAP handles the tween. `typographyMotion.js` holds the shared settings. Temporary styles clear on completion; animations settle when the document is hidden, and observers/listeners are cleaned up. Reduced motion shows content immediately and removes clipping. Project titles are real case-study links with underline transitions; navigation uses thin transform-based underlines. Paragraphs, previews, skill lists and contact controls stay stationary. No ScrollTrigger import or second scroll system.
+
+`index.html` supplies a small static identity, project summary and contact fallback inside the root. React replaces it on successful startup; blocked JavaScript still leaves factual content and usable links.
+
+Fine-pointer screens at least 768px wide and 400px high use a faint, 320px maximum gutter rail with a near-black head and six followers. Trail spread is capped at 32px; only the head has a restrained 4px neutral shadow at 0.12 opacity. It follows actual document progress using the existing exponential, substepped smoothing. The head rests at 0.2 opacity and followers fade completely. Small/coarse-pointer layouts show a 1px progress line; reduced motion hides both. One coordinated trail frame loop stops when settled or hidden. The clipped About portrait retains a maximum 4px follow-through. Settings live in src/components/scrollTrailMotion.js. WmsPreview itself remains static.
 
 WmsPreview presents the dashboard, revenue chart, rankings, receivables, due-date monitoring, inventory summary, and the complete sidebar simultaneously. Its 8 sidebar sections contain 27 submenu entries; all groups remain expanded so every label can be seen by scrolling. Menus, date/filter displays, account presentation, and Sales Order presentation are plain text/SVG elements with no actions, not disabled buttons or fake links. The Sales Order presentation stays at the dashboard end instead of floating over portfolio content.
 
 All values, dates, identities, documents, and customers are fictional and visibly labeled dummy data. No backend, authentication, source API, or production record is included. All menu labels are shown for presentation, including feature-gated entries; live visibility depends on permissions and enabled modules. Source correspondence and deliberate embedding differences are documented in `src/components/wms/README.md`. This is a source-based recreation, not a verified pixel-diff match against an authenticated live WMS.
 
-Résumé download, real contact links, clipboard success/failure messages, skip link and keyboard focus remain intact. Portfolio focus is cyan; the light preview uses a dark-orange outline for its inner scroll regions, while its outer viewport inherits portfolio focus. Reduced motion leaves all content and controls available.
+Résumé download, real contact links, clipboard success/failure messages, skip link and keyboard focus remain intact. Portfolio focus is black; the WMS preview keeps its dark-orange inner-region focus, while its outer viewport inherits portfolio focus. Reduced motion leaves all content and controls available.
 
 ## Case-study reading pattern
 
@@ -141,6 +175,7 @@ Use the same reading scale, measure and spacing as the homepage. The section ind
 - Keep fixtures explicitly labeled, and never present demo revenue as real project outcomes.
 - Preserve native scrolling, focusable preview scroll regions, and inactive dashboard controls.
 - Keep WMS Jakarta scoped to the embedded dashboard; do not replace portfolio Manrope.
+- Keep the surrounding portfolio white and monochrome, but preserve the displayed project's original colors.
 - Use one primary action per project, readable metadata, and progressive disclosure for dense source UI and engineering detail.
 - Keep paragraphs stable; motion never hides or delays important information.
 - Do not add WMS chart animation, filters, menu actions, or backend connections to this static preview.
