@@ -88,7 +88,7 @@ section { scroll-margin-top: 104px; }
 .desktop-nav a:is(:hover, :focus-visible)::after, .case-index a:is(:hover, :focus-visible)::after { transform: scaleX(1); }
 .desktop-nav a:hover { color: var(--ink); }
 .resume-link { color: var(--ink); margin-left: 8px; }
-.menu-toggle, .mobile-nav { display: none; }
+.menu-toggle, .mobile-nav, .mobile-menu { display: none; }
 .button, .text-link { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 44px; font-size: 1rem; font-weight: 500; }
 .button { padding: 12px 20px; border-radius: 3px; line-height: 1.5; }
 .button-primary { background: var(--accent); color: var(--on-accent); }
@@ -289,12 +289,25 @@ section { scroll-margin-top: 104px; }
   .startup-menu { display: block; }
   .startup-menu > summary { position: absolute; top: 10px; right: 20px; }
   .case-study .startup-preview { height: 560px; }
-  .menu-toggle { display: inline-flex; align-items: center; justify-content: flex-end; gap: 12px; min-width: 88px; min-height: 44px; padding: 8px 0 8px 12px; border: 0; background: transparent; color: var(--ink); font-size: var(--text-small); }
-  .menu-toggle-icon { position: relative; width: 20px; height: 20px; }
-  .menu-toggle-icon svg { position: absolute; inset: 0; width: 20px; height: 20px; transition: opacity 150ms ease-out; }
-  .menu-icon-close { opacity: 0; }
-  .menu-toggle[aria-expanded="true"] .menu-icon-open { opacity: 0; }
-  .menu-toggle[aria-expanded="true"] .menu-icon-close { opacity: 1; }
+  .menu-toggle { --menu-duration: 220ms; display: inline-flex; align-items: center; justify-content: flex-end; gap: 12px; min-width: 88px; min-height: 44px; padding: 8px 0 8px 12px; border: 0; background: transparent; color: var(--ink); font-size: var(--text-small); }
+  .menu-toggle[aria-expanded="true"], .startup-menu[open] > summary { --menu-duration: 280ms; }
+  .menu-toggle-label { display: grid; }
+  .menu-toggle-label > span { grid-area: 1 / 1; transition: opacity 160ms ease-out; }
+  .menu-label-close { opacity: 0; }
+  .menu-toggle-icon { width: 20px; height: 20px; flex-shrink: 0; }
+  .menu-toggle-icon path { stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; transition: transform var(--menu-duration) var(--motion-ease), opacity 160ms ease-out; }
+  .menu-line-top { transform-origin: 10px 5px; }
+  .menu-line-middle { transform-origin: 10px 10px; }
+  .menu-line-bottom { transform-origin: 10px 15px; }
+  :is(.menu-toggle[aria-expanded="true"], .startup-menu[open] > summary) .menu-line-top { transform: translateY(5px) rotate(45deg); }
+  :is(.menu-toggle[aria-expanded="true"], .startup-menu[open] > summary) .menu-line-middle { transform: scaleX(.5); opacity: 0; }
+  :is(.menu-toggle[aria-expanded="true"], .startup-menu[open] > summary) .menu-line-bottom { transform: translateY(-5px) rotate(-45deg); }
+  :is(.menu-toggle[aria-expanded="true"], .startup-menu[open] > summary) .menu-label-open { opacity: 0; }
+  :is(.menu-toggle[aria-expanded="true"], .startup-menu[open] > summary) .menu-label-close { opacity: 1; }
+  .mobile-menu { --menu-duration: 220ms; display: block; position: absolute; inset: 100% 0 auto; max-height: calc(100dvh - var(--nav-height, 65px)); overflow-y: auto; overscroll-behavior: contain; background: var(--surface); border-bottom: 1px solid var(--line); clip-path: inset(0 0 100% 0); opacity: 0; visibility: hidden; pointer-events: none; transition: clip-path var(--menu-duration) var(--motion-ease), opacity 160ms ease-out, visibility 0s var(--menu-duration); }
+  .mobile-menu-inner { transform: translateY(-6px); transition: transform var(--menu-duration) var(--motion-ease); }
+  .mobile-menu[data-open="true"], .startup-menu[open] .mobile-menu { --menu-duration: 280ms; clip-path: inset(0); opacity: 1; visibility: visible; pointer-events: auto; transition-delay: 0s; }
+  .mobile-menu[data-open="true"] .mobile-menu-inner, .startup-menu[open] .mobile-menu-inner { transform: none; }
   .mobile-nav { display: flex; flex-direction: column; padding-block: 8px 16px; }
   .mobile-nav a { display: flex; align-items: center; min-height: 44px; gap: 12px; padding-block: 8px; }
   .hero { padding-block: 48px 56px; }

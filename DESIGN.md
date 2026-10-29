@@ -169,6 +169,8 @@ All values, dates, identities, documents, and customers are fictional and visibl
 
 Résumé download, real contact links, clipboard success/failure messages, skip link and keyboard focus remain intact. Portfolio focus is black; the WMS preview keeps its dark-orange inner-region focus, while its outer viewport inherits portfolio focus. Reduced motion leaves all content and controls available.
 
+The mobile navigation keeps a fixed-height sticky bar. Three SVG strokes morph into a close icon while a white dropdown reveals below it, using a 280ms opening and 220ms closing transition with the shared non-bouncy easing. Menu/Close labels crossfade in one fixed-width grid cell. The panel stays mounted for interrupted/reversed transitions, overlays the page without shifting content, and scrolls internally when viewport space is limited. Closed links are inert and hidden from assistive technology immediately. Escape, link selection, outside pointer presses and focus leaving the header close it; desktop resizing also resets the state. Focus returns safely from closing links, and reduced motion switches states immediately. The initial native menu uses matching artwork and panel geometry.
+
 ## Case-study reading pattern
 
 The WMS case study tells one connected story: the document/balance/ledger model, a partial warehouse receipt, the dashboard, other workflows, then engineering details. A fictional 10-unit transfer with 6 received explains the paired stock changes without implying business results. The contribution remains exactly Full-stack development.
