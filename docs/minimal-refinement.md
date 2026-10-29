@@ -91,6 +91,9 @@ are review artifacts, not public portfolio assets or WMS screenshots.
 - Case-study direct navigation and refresh, section anchors, and a résumé fetch
   returning HTTP 200 / application/pdf. Existing contact/social URLs are preserved;
   no email was sent and external social accounts were not authenticated.
+- Final anchor confirmation at 1440px and 360px: the case-study Contact action
+  brings the email into view; Selected Work returns to its section; direct About
+  links and refreshes retain the intended header offset. No JavaScript exceptions.
 - Clipboard success read back the expected public email; a forced permission
   rejection showed the existing recovery message.
 - Normal-motion slow scroll, fast jumps, reversals and settlement. After settling,
