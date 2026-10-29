@@ -71,7 +71,10 @@ const Navbar = ({ homePrefix = "" }) => {
           <a className="resume-link" href={resumePdf} download="CV - Averil Primayuda.pdf">Résumé <ArrowTopRightIcon aria-hidden="true" /></a>
         </nav>
         <button type="button" className="menu-toggle" ref={toggleRef} onClick={() => setIsOpen((open) => !open)} aria-label={isOpen ? 'Close menu' : 'Open menu'} aria-expanded={isOpen} aria-controls="mobile-navigation">
-          <span className="menu-toggle-label" aria-hidden="true"><span className="menu-label-open">Menu</span><span className="menu-label-close">Close</span></span>
+          <span className="menu-toggle-label" aria-hidden="true">
+            <span className="menu-label-open">{'Menu'.split('').map((letter, index) => <span className="menu-label-character" key={index}>{letter}</span>)}</span>
+            <span className="menu-label-close">{'Close'.split('').map((letter, index) => <span className="menu-label-character" key={index}>{letter}</span>)}</span>
+          </span>
           <svg className="menu-toggle-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
             <path className="menu-line-top" d="M3 5h14" />
             <path className="menu-line-middle" d="M3 10h14" />

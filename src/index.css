@@ -291,9 +291,15 @@ section { scroll-margin-top: 104px; }
   .case-study .startup-preview { height: 560px; }
   .menu-toggle { --menu-duration: 220ms; display: inline-flex; align-items: center; justify-content: flex-end; gap: 12px; min-width: 88px; min-height: 44px; padding: 8px 0 8px 12px; border: 0; background: transparent; color: var(--ink); font-size: var(--text-small); }
   .menu-toggle[aria-expanded="true"], .startup-menu[open] > summary { --menu-duration: 280ms; }
-  .menu-toggle-label { display: grid; }
-  .menu-toggle-label > span { grid-area: 1 / 1; transition: opacity 160ms ease-out; }
-  .menu-label-close { opacity: 0; }
+  .menu-toggle-label { display: grid; overflow: hidden; line-height: 1.5; }
+  .menu-toggle-label > span { grid-area: 1 / 1; display: flex; justify-content: flex-end; perspective: 160px; }
+  .menu-label-character { --character-index: 0; display: block; transform-origin: 50% 70%; backface-visibility: hidden; transition: transform var(--menu-duration) var(--motion-ease), opacity var(--menu-duration) var(--motion-ease); transition-delay: calc(var(--character-index) * 16ms); }
+  .menu-label-character:nth-child(2) { --character-index: 1; }
+  .menu-label-character:nth-child(3) { --character-index: 2; }
+  .menu-label-character:nth-child(4) { --character-index: 3; }
+  .menu-label-character:nth-child(5) { --character-index: 4; }
+  .menu-label-open .menu-label-character { transform: translateY(0) rotateX(0deg); opacity: 1; }
+  .menu-label-close .menu-label-character { transform: translateY(65%) rotateX(-60deg); opacity: 0; }
   .menu-toggle-icon { width: 20px; height: 20px; flex-shrink: 0; }
   .menu-toggle-icon path { stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; transition: transform var(--menu-duration) var(--motion-ease), opacity 160ms ease-out; }
   .menu-line-top { transform-origin: 10px 5px; }
@@ -302,8 +308,8 @@ section { scroll-margin-top: 104px; }
   :is(.menu-toggle[aria-expanded="true"], .startup-menu[open] > summary) .menu-line-top { transform: translateY(5px) rotate(45deg); }
   :is(.menu-toggle[aria-expanded="true"], .startup-menu[open] > summary) .menu-line-middle { transform: scaleX(.5); opacity: 0; }
   :is(.menu-toggle[aria-expanded="true"], .startup-menu[open] > summary) .menu-line-bottom { transform: translateY(-5px) rotate(-45deg); }
-  :is(.menu-toggle[aria-expanded="true"], .startup-menu[open] > summary) .menu-label-open { opacity: 0; }
-  :is(.menu-toggle[aria-expanded="true"], .startup-menu[open] > summary) .menu-label-close { opacity: 1; }
+  :is(.menu-toggle[aria-expanded="true"], .startup-menu[open] > summary) .menu-label-open .menu-label-character { transform: translateY(-65%) rotateX(60deg); opacity: 0; }
+  :is(.menu-toggle[aria-expanded="true"], .startup-menu[open] > summary) .menu-label-close .menu-label-character { transform: translateY(0) rotateX(0deg); opacity: 1; }
   .mobile-menu { --menu-duration: 220ms; display: block; position: absolute; inset: 100% 0 auto; max-height: calc(100dvh - var(--nav-height, 65px)); overflow-y: auto; overscroll-behavior: contain; background: var(--surface); border-bottom: 1px solid var(--line); clip-path: inset(0 0 100% 0); opacity: 0; visibility: hidden; pointer-events: none; transition: clip-path var(--menu-duration) var(--motion-ease), opacity 160ms ease-out, visibility 0s var(--menu-duration); }
   .mobile-menu-inner { transform: translateY(-6px); transition: transform var(--menu-duration) var(--motion-ease); }
   .mobile-menu[data-open="true"], .startup-menu[open] .mobile-menu { --menu-duration: 280ms; clip-path: inset(0); opacity: 1; visibility: visible; pointer-events: auto; transition-delay: 0s; }
