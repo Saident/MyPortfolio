@@ -19,7 +19,7 @@ function App() {
   }, [])
   return (
     <>
-      <ScrollTrail />
+      <ScrollTrail variant={project ? 'rail' : 'thread'} />
       <a className="skip-link" href="#main">Skip to content</a>
       <Navbar homePrefix={project ? '/' : ''} />
       <main id="main" tabIndex={-1}>

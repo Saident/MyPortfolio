@@ -24,8 +24,8 @@ export default function Hero() {
     return () => media.revert()
   }, [])
   return (
-    <section id="home" className="container hero" ref={root}>
-      <div className="hero-layout">
+    <section id="home" className="hero" ref={root}>
+      <div className="container hero-layout">
         <div className="hero-heading">
           <p className="hero-identity">{profile.role}</p>
           <h1 className="hero-name">{profile.name.split(' ').map((word, index) => <span className="type-mask" key={word}><span className="type-line">{index > 0 && ' '}{word}</span></span>)}</h1>
