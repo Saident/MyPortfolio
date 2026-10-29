@@ -10,7 +10,7 @@ const About = () => (
       <div className="about-copy">
         <p>I'm Averil, a {profile.role.toLowerCase()} at <strong>{profile.employer}</strong>. I work across the stack, connecting backend logic, databases, and the interfaces people use.</p>
         <p>My background is in Information Technology at Universitas Brawijaya. Alongside my professional work, I take on side projects and freelance work, building web applications and exploring new ideas.</p>
-        <p>Outside of development, I enjoy fishing, coffee, and movies.</p>
+        <p>Outside of coding, I enjoy going for walks, grabbing a cup of coffee, and watching movies.</p>
       </div>
     </div>
   </section>
